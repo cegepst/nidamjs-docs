@@ -23,9 +23,9 @@ Create an HTML file and add a container element where the windows will be render
     <link rel="stylesheet" href="node_modules/nidamjs/dist/nidam.css" />
   </head>
   <body>
-    <div class="desktop-root">
+    <div nd-desktop>
       <!-- Target for windows -->
-      <div id="desktop-target"></div>
+      <div id="target"></div>
 
       <!-- Taskbar -->
       <div nd-taskbar tb-position="bottom">
@@ -46,7 +46,7 @@ Import `createNidamApp` from the library and initialize it pointing to your targ
 import { createNidamApp } from "nidamjs";
 
 const app = createNidamApp({
-  modalContainer: "#desktop-target",
+  modalContainer: "#target",
   windowManager: {
     config: {
       maxWindows: 5,
