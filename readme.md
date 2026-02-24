@@ -20,19 +20,8 @@ enables windows, taskbar, icons, and related UI/UX features without requiring ba
 
 Get up and running in seconds.
 
-```javascript
-import { createNidamApp } from "nidamjs";
-
-const app = createNidamApp({
-  modalContainer: "#desktop-target",
-  windowManager: {
-    config: {
-      maxWindows: 10,
-    },
-  },
-});
-
-app.initialize();
+```html
+<script src="https://unpkg.com/nidamjs/dist/nidam.js"></script>
 ```
 
 ## Explore the Docs
