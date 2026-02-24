@@ -24,7 +24,6 @@ When you click a taskbar icon, the manager calls `windowManager.open(endpoint)` 
 
 - **Flexible Positioning**: Dock the taskbar to the bottom (default), left, or right side of the screen
 - **Visual Indicators**: Active applications display a pill-shaped indicator below the icon
-- **Glassmorphism**: Built-in support for backdrop blur and semi-transparent backgrounds
 - **Automatic Sync**: Real-time updates based on window lifecycle events
 - **Responsive Animations**: Smooth transitions for hover states and state changes
 - **Multiple Styles**: Default floating style and extended Windows-style bar
