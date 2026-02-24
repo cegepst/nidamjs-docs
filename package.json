@@ -2,6 +2,9 @@
     "name": "nidamjs-docs",
     "type": "module",
     "private": true,
+    "scripts": {
+        "start": "bunx retype start"
+    },
     "devDependencies": {
         "@types/bun": "latest",
         "retypeapp": "^3.12.0"
