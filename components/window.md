@@ -54,25 +54,25 @@ Use the `windowManager.open()` method or the `data-modal` attribute on a trigger
 
 ```javascript
 // Via API
-app.getModule('window').open('path/to/content.html');
+app.getModule("window").open("path/to/content.html");
 
 // Via HTML
-<button data-modal="path/to/content.html">Open Window</button>
+<button data-modal="path/to/content.html">Open Window</button>;
 ```
 
 ## Structure & Styling
 
 NidamJS uses the following classes and attributes for window management.
 
-| Selector | Description |
-| :--- | :--- |
-| `.window` | The root container for a window. |
-| `[data-bar]` | The draggable area (usually the title bar). |
-| `[data-maximize]` | Trigger for maximizing/restoring the window. |
-| `[data-close]` | Trigger for closing the window. |
-| `.focused` | Added to the active window. |
-| `.maximized` | Added when the window fills the screen. |
-| `.animate-appearance` | Class for entry animations. |
+| Selector              | Description                                  |
+| :-------------------- | :------------------------------------------- |
+| `.window`             | The root container for a window.             |
+| `[data-bar]`          | The draggable area (usually the title bar).  |
+| `[data-maximize]`     | Trigger for maximizing/restoring the window. |
+| `[data-close]`        | Trigger for closing the window.              |
+| `.focused`            | Added to the active window.                  |
+| `.maximized`          | Added when the window fills the screen.      |
+| `.animate-appearance` | Class for entry animations.                  |
 
 ### CSS Animations
 
@@ -80,8 +80,14 @@ You can customize how windows appear and disappear:
 
 ```css
 @keyframes window-appear {
-  from { opacity: 0; transform: scale(0.97); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .window.animate-appearance {
@@ -93,30 +99,33 @@ You can customize how windows appear and disappear:
 
 ### Configuration
 
-When initializing `createNidamApp`, you can configure the window manager:
+When initializing `createNidamApp`, configure window behavior under `windowManager.config`:
 
 ```javascript
 const app = createNidamApp({
   windowManager: {
     config: {
-      maxWindows: 10,
+      maxWindows: 1,
       cooldownMs: 300,
       zIndexBase: 1000,
-    }
-  }
+      taskbarHeight: 80,
+    },
+  },
 });
 ```
 
+With `maxWindows: 1`, opening a second window will show the default toast error notification.
+
 ### Window Properties (via HTML)
 
-| Attribute | Description |
-| :--- | :--- |
+| Attribute           | Description                                                  |
+| :------------------ | :----------------------------------------------------------- |
 | `data-default-snap` | Set to `maximize`, `left`, or `right` for initial placement. |
-| `data-endpoint` | (Internal) The unique identifier for the window. |
+| `data-endpoint`     | (Internal) The unique identifier for the window.             |
 
 ### Events
 
-| Event Name | Description |
-| :--------- | :--------------------------------------- |
+| Event Name      | Description                                  |
+| :-------------- | :------------------------------------------- |
 | `window:opened` | Triggered when a window is added to the DOM. |
-| `window:closed` | Triggered when a window starts closing. |
+| `window:closed` | Triggered when a window starts closing.      |

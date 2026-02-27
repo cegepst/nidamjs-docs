@@ -20,7 +20,10 @@ Create an HTML file and add a container element where the windows will be render
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NidamJS Desktop</title>
     <!-- Default styles from the package -->
-    <link rel="stylesheet" href="node_modules/nidamjs/dist/nidam.css" />
+    <link
+      rel="stylesheet"
+      href="node_modules/@moonitoring/nidamjs/dist/nidam.css"
+    />
   </head>
   <body>
     <div nd-desktop>
@@ -43,15 +46,15 @@ Create an HTML file and add a container element where the windows will be render
 Import `createNidamApp` from the library and initialize it pointing to your target container.
 
 ```javascript
-import { createNidamApp } from "nidamjs";
+import { createNidamApp } from "@moonitoring/nidamjs";
 
 const app = createNidamApp({
   modalContainer: "#target",
   windowManager: {
     config: {
       maxWindows: 5,
-    }
-  }
+    },
+  },
 });
 
 app.initialize();
@@ -63,10 +66,10 @@ NidamJS works with **endpoints**. An endpoint can be a URL that returns window H
 
 ```javascript
 // Get the window manager module
-const wm = app.getModule('window');
+const wm = app.getModule("window");
 
 // Open a window by its endpoint/URL
-wm.open('pages/welcome.html');
+wm.open("pages/welcome.html");
 ```
 
 ## Static Template Usage
@@ -86,6 +89,7 @@ For static sites, you can define windows inside `<template>` tags with a `data-r
 ```
 
 Then open it using the route name:
+
 ```javascript
-wm.open('my-app');
+wm.open("my-app");
 ```
