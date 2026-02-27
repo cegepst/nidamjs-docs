@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825520425548">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825536330066">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.0.1">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Configuration</title>
     <meta name="title" content="Configuration">
-    <meta name="description" content="NidamJS is configured by passing an object to createNidamApp(). This object controls global behavior, window manager settings, and module adapters.">
+    <meta name="description" content="NidamJS is configured by passing an object to createNidamApp(). This object controls global behavior and window manager settings.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.example.com/guide/configuration/">
@@ -21,18 +21,18 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.example.com/guide/configuration/">
     <meta property="og:title" content="Configuration">
-    <meta property="og:description" content="NidamJS is configured by passing an object to createNidamApp(). This object controls global behavior, window manager settings, and module adapters.">
+    <meta property="og:description" content="NidamJS is configured by passing an object to createNidamApp(). This object controls global behavior and window manager settings.">
     <meta property="og:site_name" content="Project Name">
     <meta property="og:locale" content="en_US">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.0.1.825520425548" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.0.1.825536330066" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825520425548" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825520425548" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825520425548" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825536330066" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -128,7 +128,7 @@
         <span>Configuration</span>
     </h1>
 </doc-anchor-target>
-<p>NidamJS is configured by passing an object to <code translate="no" v-pre>createNidamApp()</code>. This object controls global behavior, window manager settings, and module adapters.</p>
+<p>NidamJS is configured by passing an object to <code translate="no" v-pre>createNidamApp()</code>. This object controls global behavior and window manager settings.</p>
 <doc-anchor-target id="app-options">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#app-options">#</doc-anchor-trigger>
@@ -213,7 +213,7 @@
 <tr>
 <td style="text-align: left;"><code translate="no" v-pre>taskbarHeight</code></td>
 <td style="text-align: left;"><code translate="no" v-pre>number</code></td>
-<td style="text-align: left;"><code translate="no" v-pre>64</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>0</code></td>
 <td style="text-align: left;">Height reserved for the taskbar (affects maximize/snap).</td>
 </tr>
 <tr>
@@ -231,27 +231,20 @@
 </tbody>
 </table>
 </div>
-<doc-anchor-target id="window-manager-adapters">
+<doc-anchor-target id="notifications">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#window-manager-adapters">#</doc-anchor-trigger>
-        <span>Window Manager Adapters</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#notifications">#</doc-anchor-trigger>
+        <span>Notifications</span>
     </h2>
 </doc-anchor-target>
-<p>You can override default behaviors by providing functions under <code translate="no" v-pre>windowManager</code>.</p>
+<p>NidamJS uses built-in toast notifications for window errors (for example max windows reached or open failures).</p>
+<p>To customize toast appearance, override CSS variables in your app stylesheet:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">const app = createNidamApp({
-  windowManager: {
-    // Custom notification system
-    notify: (level, message) =&gt; {
-      myToast.show(message, level);
-    },
-    
-    // Custom URL resolution
-    resolveEndpoint: (endpoint) =&gt; {
-      return `/api/v1/windows/${endpoint}`;
-    }
-  }
-});</code></pre>
+<pre translate="no" class="language-css"><code v-pre class="language-css">:root {
+  --nd-toast-bg-error: rgba(127, 29, 29, 0.92);
+  --nd-toast-bg-success: rgba(6, 78, 59, 0.9);
+  --nd-toast-radius: 0.75rem;
+}</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="example-configuration">
     <h2>
@@ -266,14 +259,15 @@
     config: {
       maxWindows: 5,
       taskbarHeight: 80,
-    }
+      cooldownMs: 300,
+    },
   },
   registry: [
     {
-      selector: '.custom-widget',
-      init: (el) =&gt; new MyWidget(el)
-    }
-  ]
+      selector: &quot;.custom-widget&quot;,
+      init: (el) =&gt; new MyWidget(el),
+    },
+  ],
 });</code></pre>
 </doc-codeblock></div>
 

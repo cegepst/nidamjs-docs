@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825520425548">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825536330066">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.0.1">
@@ -27,12 +27,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.0.1.825520425548" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.0.1.825536330066" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825520425548" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825520425548" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825520425548" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825536330066" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -194,10 +194,10 @@ windows, managed by a z-index stacking context.</p>
 <p>Use the <code translate="no" v-pre>windowManager.open()</code> method or the <code translate="no" v-pre>data-modal</code> attribute on a trigger element.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">// Via API
-app.getModule('window').open('path/to/content.html');
+app.getModule(&quot;window&quot;).open(&quot;path/to/content.html&quot;);
 
 // Via HTML
-&lt;button data-modal=&quot;path/to/content.html&quot;&gt;Open Window&lt;/button&gt;</code></pre>
+&lt;button data-modal=&quot;path/to/content.html&quot;&gt;Open Window&lt;/button&gt;;</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="structure--styling">
     <h2>
@@ -255,8 +255,14 @@ app.getModule('window').open('path/to/content.html');
 <p>You can customize how windows appear and disappear:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-css"><code v-pre class="language-css">@keyframes window-appear {
-  from { opacity: 0; transform: scale(0.97); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .window.animate-appearance {
@@ -275,18 +281,20 @@ app.getModule('window').open('path/to/content.html');
         <span>Configuration</span>
     </h3>
 </doc-anchor-target>
-<p>When initializing <code translate="no" v-pre>createNidamApp</code>, you can configure the window manager:</p>
+<p>When initializing <code translate="no" v-pre>createNidamApp</code>, configure window behavior under <code translate="no" v-pre>windowManager.config</code>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">const app = createNidamApp({
   windowManager: {
     config: {
-      maxWindows: 10,
+      maxWindows: 1,
       cooldownMs: 300,
       zIndexBase: 1000,
-    }
-  }
+      taskbarHeight: 80,
+    },
+  },
 });</code></pre>
 </doc-codeblock></div>
+<p>With <code translate="no" v-pre>maxWindows: 1</code>, opening a second window will show the default toast error notification.</p>
 <doc-anchor-target id="window-properties-via-html">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#window-properties-via-html">#</doc-anchor-trigger>
