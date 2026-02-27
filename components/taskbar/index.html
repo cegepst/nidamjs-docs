@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825520425548">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 4.0.1">
+
+    <!-- Primary Meta Tags -->
+    <title>Taskbar</title>
+    <meta name="title" content="Taskbar">
+    <meta name="description" content="The Taskbar component provides a persistent interface for launching applications and managing open windows in the NidamJS desktop environment. It displays">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://docs.example.com/components/taskbar/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.example.com/components/taskbar/">
+    <meta property="og:title" content="Taskbar">
+    <meta property="og:description" content="The Taskbar component provides a persistent interface for launching applications and managing open windows in the NidamJS desktop environment. It displays">
+    <meta property="og:site_name" content="Project Name">
+    <meta property="og:locale" content="en_US">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link href="../../resources/css/retype.css?v=4.0.1.825520425548" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825520425548" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825520425548" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825520425548" defer></script>
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+    <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+
+    <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+        <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+            <!-- Mobile menu button skeleton -->
+            <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-hidden rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+            <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+    
+            <!-- Logo -->
+            <div class="flex items-center justify-between h-full py-2 md:w-75">
+                <div class="flex items-center px-2 md:px-6">
+                    <a id="retype-branding-logo" href="../../" class="flex items-center leading-snug text-2xl">
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Project Name</span>
+                    </a><span id="retype-branding-label" class="inline-flex mt-1 px-2 py-1 ml-4 text-xs font-medium leading-none items-center rounded-md bg-branding-label-bg text-branding-label-text ring-1 ring-branding-label-border ring-inset md:inline-block">Docs</span>
+                </div>
+    
+                <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+            </div>
+    
+            <div class="flex justify-between md:grow">
+                <!-- Top Nav -->
+                <nav id="retype-header-nav" class="hidden md:flex">
+                    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                        
+                    </ul>
+                </nav>
+    
+                <div v-cloak class="flex justify-end grow">
+                    <div id="retype-mobile-search-button"></div>
+                    <doc-search-desktop></doc-search-desktop>
+    
+                    <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                    <doc-history></doc-history>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="retype-container" class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+        <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+        
+            <div class="flex items-center h-16 px-6">
+                <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-hidden focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+            </div>
+        
+            <div class="pl-6 mt-1 mb-4">
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            </div>
+        
+            <div class="shrink-0 mt-auto bg-transparent dark:border-base-border">
+                <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                    <span class="text-xs whitespace-nowrap">Powered by</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Sidebar component -->
+        <doc-sidebar v-cloak>
+            <template #sidebar-footer>
+                <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+        
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </template>
+        </doc-sidebar>
+
+        <div class="grow min-w-0 bg-body-bg">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+<div class="flex">
+    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+        <main class="relative pb-12 lg:pt-2">
+            <div class="retype-markdown" id="retype-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="retype-sidebar-right-toggle"></div>
+                <!-- Page content  -->
+<doc-anchor-target id="taskbar" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#taskbar">#</doc-anchor-trigger>
+        <span>Taskbar</span>
+    </h1>
+</doc-anchor-target>
+<p>The <code translate="no" v-pre>Taskbar</code> component provides a persistent interface for launching applications and managing open windows in the NidamJS desktop environment. It displays application icons that serve as triggers to open windows, with visual feedback when windows are open.</p>
+<doc-anchor-target id="overview">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#overview">#</doc-anchor-trigger>
+        <span>Overview</span>
+    </h2>
+</doc-anchor-target>
+<p>The taskbar acts as the primary navigation hub for the desktop. It docks to one edge of the screen and displays application icons. When a window is open, the corresponding taskbar icon shows an active indicator, and clicking the icon will either bring the existing window into focus or open a new one.</p>
+<doc-anchor-target id="how-it-works">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#how-it-works">#</doc-anchor-trigger>
+        <span>How It Works</span>
+    </h3>
+</doc-anchor-target>
+<p>The <code translate="no" v-pre>TaskbarManager</code> class handles the taskbar functionality:</p>
+<ol>
+<li><strong>Event Binding</strong>: Listens for clicks on taskbar icons to trigger window opening</li>
+<li><strong>Window State Sync</strong>: Subscribes to <code translate="no" v-pre>window:opened</code> and <code translate="no" v-pre>window:closed</code> events to update icon states</li>
+<li><strong>Visual Feedback</strong>: Toggles the <code translate="no" v-pre>is-open</code> class on icons based on window state</li>
+</ol>
+<p>When you click a taskbar icon, the manager calls <code translate="no" v-pre>windowManager.open(endpoint)</code> with the endpoint specified in the icon&#x27;s <code translate="no" v-pre>data-modal</code> attribute. If a window with that endpoint is already open, it will be brought into focus.</p>
+<doc-anchor-target id="features">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#features">#</doc-anchor-trigger>
+        <span>Features</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><strong>Flexible Positioning</strong>: Dock the taskbar to the bottom (default), left, or right side of the screen</li>
+<li><strong>Visual Indicators</strong>: Active applications display a pill-shaped indicator below the icon</li>
+<li><strong>Automatic Sync</strong>: Real-time updates based on window lifecycle events</li>
+<li><strong>Responsive Animations</strong>: Smooth transitions for hover states and state changes</li>
+<li><strong>Multiple Styles</strong>: Default floating style and extended Windows-style bar</li>
+</ul>
+<doc-anchor-target id="usage">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#usage">#</doc-anchor-trigger>
+        <span>Usage</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="basic-structure">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#basic-structure">#</doc-anchor-trigger>
+        <span>Basic Structure</span>
+    </h3>
+</doc-anchor-target>
+<p>The taskbar is defined in HTML using the <code translate="no" v-pre>nd-taskbar</code> attribute. Individual items use the <code translate="no" v-pre>nd-taskbar-icon</code> attribute and must map to a window endpoint via <code translate="no" v-pre>data-modal</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar&gt;
+  &lt;div nd-taskbar-icon data-modal=&quot;terminal&quot;&gt;
+    &lt;img src=&quot;/icons/terminal.png&quot; alt=&quot;Terminal&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div nd-taskbar-icon data-modal=&quot;browser&quot;&gt;
+    &lt;img src=&quot;/icons/browser.png&quot; alt=&quot;Browser&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div nd-taskbar-icon data-modal=&quot;settings&quot;&gt;
+    &lt;img src=&quot;/icons/settings.png&quot; alt=&quot;Settings&quot; /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="taskbar-styles">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#taskbar-styles">#</doc-anchor-trigger>
+        <span>Taskbar Styles</span>
+    </h3>
+</doc-anchor-target>
+<p>NidamJS provides two built-in taskbar styles:</p>
+<p><strong>Default Style (Floating)</strong></p>
+<p>The default floating style positions the taskbar as a rounded bar that floats above the desktop with a glassmorphic appearance.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar&gt;
+  &lt;!-- Icons here --&gt;
+&lt;/div&gt;</code></pre>
+</doc-codeblock></div>
+<p><strong>Extended Style (Windows-style)</strong></p>
+<p>The extended style creates a full-width bar docked to the bottom of the screen, similar to the Windows taskbar.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar=&quot;extend&quot;&gt;
+  &lt;!-- Icons here --&gt;
+&lt;/div&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="changing-position">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#changing-position">#</doc-anchor-trigger>
+        <span>Changing Position</span>
+    </h3>
+</doc-anchor-target>
+<p>You can change the orientation and position of the taskbar using the <code translate="no" v-pre>nd-taskbar-position</code> attribute.</p>
+<p><strong>Bottom (Default)</strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar nd-taskbar-position=&quot;bottom&quot;&gt;...&lt;/div&gt;</code></pre>
+</doc-codeblock></div>
+<p><strong>Left</strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar nd-taskbar-position=&quot;left&quot;&gt;...&lt;/div&gt;</code></pre>
+</doc-codeblock></div>
+<p><strong>Right</strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar nd-taskbar-position=&quot;right&quot;&gt;...&lt;/div&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="icon-labels">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#icon-labels">#</doc-anchor-trigger>
+        <span>Icon Labels</span>
+    </h3>
+</doc-anchor-target>
+<p>For the extended taskbar style, you can add text labels beneath or beside icons:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar=&quot;extend&quot;&gt;
+  &lt;div nd-taskbar-icon data-modal=&quot;terminal&quot;&gt;
+    &lt;img src=&quot;/icons/terminal.png&quot; alt=&quot;Terminal&quot; /&gt;
+    &lt;span&gt;Terminal&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</doc-codeblock></div>
+<p>Or use buttons with text:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar=&quot;extend&quot;&gt;
+  &lt;button nd-taskbar-icon class=&quot;toolbar-btn&quot; data-modal=&quot;terminal&quot;&gt;
+    Terminal
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="structure--styling">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#structure--styling">#</doc-anchor-trigger>
+        <span>Structure &amp; Styling</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="dom-structure">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#dom-structure">#</doc-anchor-trigger>
+        <span>DOM Structure</span>
+    </h3>
+</doc-anchor-target>
+<p>The <code translate="no" v-pre>TaskbarManager</code> targets specific attributes to apply logic and styling.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;!-- Taskbar Container --&gt;
+&lt;div nd-taskbar nd-taskbar-position=&quot;bottom&quot;&gt;
+  &lt;!-- Inactive Icon --&gt;
+  &lt;div nd-taskbar-icon data-modal=&quot;app-id&quot;&gt;
+    &lt;img src=&quot;...&quot; /&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Active Icon (is-open class added by TaskbarManager) --&gt;
+  &lt;div nd-taskbar-icon data-modal=&quot;app-id&quot; class=&quot;is-open&quot;&gt;
+    &lt;img src=&quot;...&quot; /&gt;
+    &lt;!-- The &quot;is-open&quot; class displays the indicator via CSS ::after --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="css-architecture">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#css-architecture">#</doc-anchor-trigger>
+        <span>CSS Architecture</span>
+    </h3>
+</doc-anchor-target>
+<p>The taskbar styles are organized in three CSS files:</p>
+<ul>
+<li><code translate="no" v-pre>root.css</code>: Defines all CSS custom properties (variables)</li>
+<li><code translate="no" v-pre>default.css</code>: Implements the default floating taskbar style</li>
+<li><code translate="no" v-pre>extend.css</code>: Implements the extended Windows-style taskbar</li>
+</ul>
+<doc-anchor-target id="css-variables">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#css-variables">#</doc-anchor-trigger>
+        <span>CSS Variables</span>
+    </h3>
+</doc-anchor-target>
+<p>Customize the look and feel of the taskbar by overriding CSS custom properties in your stylesheet. Variables are scoped under the <code translate="no" v-pre>[nd-taskbar]</code> selector.</p>
+<doc-anchor-target id="taskbar-container">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#taskbar-container">#</doc-anchor-trigger>
+        <span>Taskbar Container</span>
+    </h4>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-position</code></td>
+<td><code translate="no" v-pre>absolute</code></td>
+<td>Position type (absolute, fixed, relative)</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-align</code></td>
+<td><code translate="no" v-pre>center</code></td>
+<td>Vertical alignment of items</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-justify</code></td>
+<td><code translate="no" v-pre>space-evenly</code></td>
+<td>Horizontal distribution of items</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-gap</code></td>
+<td><code translate="no" v-pre>1.6rem</code></td>
+<td>Gap between icon items</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-pad-y</code></td>
+<td><code translate="no" v-pre>0.6rem</code></td>
+<td>Vertical padding</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-pad-x</code></td>
+<td><code translate="no" v-pre>1rem</code></td>
+<td>Horizontal padding</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-radius</code></td>
+<td><code translate="no" v-pre>24px</code></td>
+<td>Border radius</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-bg</code></td>
+<td><code translate="no" v-pre>rgba(255, 255, 255, 0.1)</code></td>
+<td>Background color with transparency</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-backdrop-filter</code></td>
+<td><code translate="no" v-pre>blur(12px)</code></td>
+<td>Backdrop blur effect</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-border</code></td>
+<td><code translate="no" v-pre>1px solid rgba(255, 255, 255, 0.2)</code></td>
+<td>Border style</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-box-shadow</code></td>
+<td><code translate="no" v-pre>0 8px 32px rgba(0, 0, 0, 0.3)</code></td>
+<td>Box shadow</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-z-index</code></td>
+<td><code translate="no" v-pre>1000</code></td>
+<td>Stacking order</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-transition</code></td>
+<td><code translate="no" v-pre>all 0.3s cubic-bezier(0.4, 0, 0.2, 1)</code></td>
+<td>Transition timing</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="positioning-bottom">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#positioning-bottom">#</doc-anchor-trigger>
+        <span>Positioning (Bottom)</span>
+    </h4>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-bottom</code></td>
+<td><code translate="no" v-pre>10px</code></td>
+<td>Distance from bottom edge</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-left</code></td>
+<td><code translate="no" v-pre>50%</code></td>
+<td>Horizontal position</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-transform</code></td>
+<td><code translate="no" v-pre>translateX(-50%)</code></td>
+<td>Transform for centering</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-width</code></td>
+<td><code translate="no" v-pre>fit-content</code></td>
+<td>Container width</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-min-width</code></td>
+<td><code translate="no" v-pre>300px</code></td>
+<td>Minimum width</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="positioning-side---leftright">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#positioning-side---leftright">#</doc-anchor-trigger>
+        <span>Positioning (Side - Left/Right)</span>
+    </h4>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-top</code></td>
+<td><code translate="no" v-pre>auto</code></td>
+<td>Distance from top edge</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-right</code></td>
+<td><code translate="no" v-pre>auto</code></td>
+<td>Distance from right edge</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-height</code></td>
+<td><code translate="no" v-pre>fit-content</code></td>
+<td>Container height</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-min-height</code></td>
+<td><code translate="no" v-pre>200px</code></td>
+<td>Minimum height</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-offset</code></td>
+<td><code translate="no" v-pre>10px</code></td>
+<td>General offset</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="flex-layout">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#flex-layout">#</doc-anchor-trigger>
+        <span>Flex Layout</span>
+    </h4>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-flex-direction</code></td>
+<td><code translate="no" v-pre>row</code></td>
+<td>Direction of items (row/column)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="icon-item">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#icon-item">#</doc-anchor-trigger>
+        <span>Icon Item</span>
+    </h4>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-display</code></td>
+<td><code translate="no" v-pre>flex</code></td>
+<td>Display type</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-align</code></td>
+<td><code translate="no" v-pre>center</code></td>
+<td>Vertical alignment</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-justify</code></td>
+<td><code translate="no" v-pre>center</code></td>
+<td>Horizontal alignment</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-width</code></td>
+<td><code translate="no" v-pre>54px</code></td>
+<td>Icon container width</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-height</code></td>
+<td><code translate="no" v-pre>54px</code></td>
+<td>Icon container height</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-size</code></td>
+<td><code translate="no" v-pre>54px</code></td>
+<td>Legacy alias for width</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-pad</code></td>
+<td><code translate="no" v-pre>0.5rem</code></td>
+<td>Internal padding</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-radius</code></td>
+<td><code translate="no" v-pre>14px</code></td>
+<td>Border radius</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-cursor</code></td>
+<td><code translate="no" v-pre>pointer</code></td>
+<td>Cursor type</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-transition</code></td>
+<td><code translate="no" v-pre>background 0.2s ease, transform 0.2s ease</code></td>
+<td>Transition timing</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-position</code></td>
+<td><code translate="no" v-pre>relative</code></td>
+<td>Position context</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-object-fit</code></td>
+<td><code translate="no" v-pre>contain</code></td>
+<td>Image fit mode</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-bg</code></td>
+<td><code translate="no" v-pre>transparent</code></td>
+<td>Background color</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-color</code></td>
+<td><code translate="no" class="whitespace-nowrap" v-pre>#f1f5f9<span class="color-preview-display ml-color-preview-margin-left border border-color-preview-border rounded-full h-color-preview-height w-color-preview-width" style="background-color:#f1f5f9;"></span></code></td>
+<td>Text color</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-min-width</code></td>
+<td><code translate="no" v-pre>auto</code></td>
+<td>Minimum width</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-font-size</code></td>
+<td><code translate="no" v-pre>0.85rem</code></td>
+<td>Font size for text labels</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-transform</code></td>
+<td><code translate="no" v-pre>none</code></td>
+<td>Transform applied</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-border</code></td>
+<td><code translate="no" v-pre>1px solid transparent</code></td>
+<td>Border style</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-max-width</code></td>
+<td><code translate="no" v-pre>4rem</code></td>
+<td>Maximum width (side positions)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="icon-hover-state">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#icon-hover-state">#</doc-anchor-trigger>
+        <span>Icon Hover State</span>
+    </h4>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-hover</code></td>
+<td><code translate="no" v-pre>rgb(71 85 105 / 0.6)</code></td>
+<td>Hover background color</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-hover-transform</code></td>
+<td><code translate="no" v-pre>none</code></td>
+<td>Hover transform</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-hover-border</code></td>
+<td><code translate="no" v-pre>transparent</code></td>
+<td>Hover border</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="icon-open-state-extended-style">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#icon-open-state-extended-style">#</doc-anchor-trigger>
+        <span>Icon Open State (Extended Style)</span>
+    </h4>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-icon-open-bg</code></td>
+<td><code translate="no" v-pre>transparent</code></td>
+<td>Background when window is open</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="active-indicator-pill">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#active-indicator-pill">#</doc-anchor-trigger>
+        <span>Active Indicator (Pill)</span>
+    </h4>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-indicator-bg</code></td>
+<td><code translate="no" class="whitespace-nowrap" v-pre>#fff<span class="color-preview-display ml-color-preview-margin-left border border-color-preview-border rounded-full h-color-preview-height w-color-preview-width" style="background-color:#fff;"></span></code></td>
+<td>Indicator background color</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-indicator-width</code></td>
+<td><code translate="no" v-pre>12px</code></td>
+<td>Indicator width</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-indicator-height</code></td>
+<td><code translate="no" v-pre>3px</code></td>
+<td>Indicator height</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-indicator-bottom</code></td>
+<td><code translate="no" v-pre>-6px</code></td>
+<td>Distance from icon bottom</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-indicator-left</code></td>
+<td><code translate="no" v-pre>50%</code></td>
+<td>Horizontal position</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-indicator-transform</code></td>
+<td><code translate="no" v-pre>translateX(-50%)</code></td>
+<td>Centering transform</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-indicator-radius</code></td>
+<td><code translate="no" v-pre>10px</code></td>
+<td>Border radius</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-indicator-shadow</code></td>
+<td><code translate="no" v-pre>0 0 8px rgba(255, 255, 255, 0.3)</code></td>
+<td>Glow effect</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-indicator-opacity</code></td>
+<td><code translate="no" v-pre>0.8</code></td>
+<td>Opacity level</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-indicator-transition</code></td>
+<td><code translate="no" v-pre>all 0.3s ease</code></td>
+<td>Transition timing</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="indicator-hover-state">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#indicator-hover-state">#</doc-anchor-trigger>
+        <span>Indicator Hover State</span>
+    </h4>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-indicator-hover-width</code></td>
+<td><code translate="no" v-pre>18px</code></td>
+<td>Width on icon hover</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-indicator-hover-height</code></td>
+<td><code translate="no" v-pre>auto</code></td>
+<td>Height on icon hover</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>--nd-taskbar-indicator-hover-opacity</code></td>
+<td><code translate="no" v-pre>1</code></td>
+<td>Opacity on icon hover</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="customization-examples">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#customization-examples">#</doc-anchor-trigger>
+        <span>Customization Examples</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="changing-taskbar-appearance">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#changing-taskbar-appearance">#</doc-anchor-trigger>
+        <span>Changing Taskbar Appearance</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-css"><code v-pre class="language-css">:root {
+  /* Make the taskbar darker and more opaque */
+  --nd-taskbar-bg: rgba(15, 23, 42, 0.85);
+  --nd-taskbar-border: 1px solid rgba(100, 116, 139, 0.3);
+
+  /* Adjust positioning */
+  --nd-taskbar-bottom: 20px;
+  --nd-taskbar-radius: 16px;
+
+  /* Customize the blur effect */
+  --nd-taskbar-backdrop-filter: blur(20px);
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="customizing-icons">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#customizing-icons">#</doc-anchor-trigger>
+        <span>Customizing Icons</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-css"><code v-pre class="language-css">:root {
+  /* Larger icons */
+  --nd-taskbar-icon-width: 64px;
+  --nd-taskbar-icon-height: 64px;
+  --nd-taskbar-icon-radius: 16px;
+
+  /* Custom hover effect */
+  --nd-taskbar-icon-hover: rgba(59, 130, 246, 0.5);
+  --nd-taskbar-icon-hover-transform: scale(1.1);
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="customizing-the-active-indicator">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#customizing-the-active-indicator">#</doc-anchor-trigger>
+        <span>Customizing the Active Indicator</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-css"><code v-pre class="language-css">:root {
+  /* Make the indicator more prominent */
+  --nd-taskbar-indicator-bg: #3b82f6;
+  --nd-taskbar-indicator-width: 24px;
+  --nd-taskbar-indicator-height: 4px;
+  --nd-taskbar-indicator-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="creating-a-dark-theme-taskbar">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#creating-a-dark-theme-taskbar">#</doc-anchor-trigger>
+        <span>Creating a Dark Theme Taskbar</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-css"><code v-pre class="language-css">:root {
+  --nd-taskbar-bg: rgba(30, 41, 59, 0.9);
+  --nd-taskbar-backdrop-filter: blur(16px);
+  --nd-taskbar-border: 1px solid rgba(51, 65, 85, 0.5);
+  --nd-taskbar-icon-hover: rgba(51, 65, 85, 0.7);
+  --nd-taskbar-indicator-bg: #38bdf8;
+  --nd-taskbar-indicator-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="side-taskbar-configuration">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#side-taskbar-configuration">#</doc-anchor-trigger>
+        <span>Side Taskbar Configuration</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-css"><code v-pre class="language-css">:root {
+  /* Left position */
+  --nd-taskbar-position: fixed;
+  --nd-taskbar-left: 10px;
+  --nd-taskbar-top: 50%;
+  --nd-taskbar-transform: translateY(-50%);
+  --nd-taskbar-flex-direction: column;
+  --nd-taskbar-min-height: 400px;
+
+  /* Adjust icons for vertical layout */
+  --nd-taskbar-icon-max-width: 60px;
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="extended-style-variables">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#extended-style-variables">#</doc-anchor-trigger>
+        <span>Extended Style Variables</span>
+    </h2>
+</doc-anchor-target>
+<p>When using <code translate="no" v-pre>nd-taskbar=&quot;extend&quot;</code>, additional variables customize the Windows-style appearance:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-css"><code v-pre class="language-css">[nd-taskbar=&quot;extend&quot;] {
+  --nd-taskbar-width: 100%;
+  --nd-taskbar-min-width: 100%;
+  --nd-taskbar-bottom: 0;
+  --nd-taskbar-left: 0;
+  --nd-taskbar-transform: none;
+  --nd-taskbar-radius: 0;
+  --nd-taskbar-bg: rgb(30 41 59 / 0.9);
+}
+
+[nd-taskbar=&quot;extend&quot;] [nd-taskbar-icon] {
+  --nd-taskbar-icon-width: auto;
+  --nd-taskbar-icon-min-width: 50px;
+  --nd-taskbar-icon-height: 42px;
+  --nd-taskbar-icon-radius: 4px;
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="api-reference">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#api-reference">#</doc-anchor-trigger>
+        <span>API Reference</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="html-attributes">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#html-attributes">#</doc-anchor-trigger>
+        <span>HTML Attributes</span>
+    </h3>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th style="text-align: left;">Attribute</th>
+<th style="text-align: left;">Target</th>
+<th style="text-align: left;">Values</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>nd-taskbar</code></td>
+<td style="text-align: left;">Container</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Identifies the taskbar element.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>nd-taskbar</code></td>
+<td style="text-align: left;">Container</td>
+<td style="text-align: left;"><code translate="no" v-pre>&quot;extend&quot;</code></td>
+<td style="text-align: left;">Enables the extended Windows-style taskbar.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>nd-taskbar-position</code></td>
+<td style="text-align: left;">Container</td>
+<td style="text-align: left;"><code translate="no" v-pre>bottom</code>, <code translate="no" v-pre>left</code>, <code translate="no" v-pre>right</code></td>
+<td style="text-align: left;">Sets the placement of the taskbar.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>nd-taskbar-icon</code></td>
+<td style="text-align: left;">Icon Item</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Identifies a clickable icon item.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>data-modal</code></td>
+<td style="text-align: left;">Icon Item</td>
+<td style="text-align: left;"><code translate="no" v-pre>string</code></td>
+<td style="text-align: left;">The window endpoint/ID to trigger on click.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="css-selectors">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#css-selectors">#</doc-anchor-trigger>
+        <span>CSS Selectors</span>
+    </h3>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th style="text-align: left;">Selector</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>[nd-taskbar]</code></td>
+<td style="text-align: left;">Targets the taskbar container</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>[nd-taskbar=&quot;extend&quot;]</code></td>
+<td style="text-align: left;">Targets the extended style taskbar</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>[nd-taskbar][nd-taskbar-position=&quot;left&quot;]</code></td>
+<td style="text-align: left;">Targets left-positioned taskbar</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>[nd-taskbar][nd-taskbar-position=&quot;right&quot;]</code></td>
+<td style="text-align: left;">Targets right-positioned taskbar</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>[nd-taskbar] [nd-taskbar-icon]</code></td>
+<td style="text-align: left;">Targets all taskbar icons</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>[nd-taskbar] [nd-taskbar-icon].is-open</code></td>
+<td style="text-align: left;">Targets icons with open windows</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>[nd-taskbar] [nd-taskbar-icon]:hover</code></td>
+<td style="text-align: left;">Targets icons on hover</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="javascript-events">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#javascript-events">#</doc-anchor-trigger>
+        <span>JavaScript Events</span>
+    </h3>
+</doc-anchor-target>
+<p>The TaskbarManager listens for these window events:</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th style="text-align: left;">Event Name</th>
+<th style="text-align: left;">Detail</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>window:opened</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>{ endpoint: string }</code></td>
+<td style="text-align: left;">Fired when a window opens. Updates the corresponding taskbar icon to show the active indicator.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code translate="no" v-pre>window:closed</code></td>
+<td style="text-align: left;"><code translate="no" v-pre>{ endpoint: string }</code></td>
+<td style="text-align: left;">Fired when a window closes. Removes the active indicator from the corresponding taskbar icon.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="programmatic-control">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#programmatic-control">#</doc-anchor-trigger>
+        <span>Programmatic Control</span>
+    </h3>
+</doc-anchor-target>
+<p>To manually control taskbar icons from JavaScript:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">// Get all taskbar icons for a specific endpoint
+const icons = document.querySelectorAll(
+  '[nd-taskbar-icon][data-modal=&quot;terminal&quot;]',
+);
+
+// Manually add the open state
+icons.forEach((icon) =&gt; icon.classList.add(&quot;is-open&quot;));
+
+// Remove the open state
+icons.forEach((icon) =&gt; icon.classList.remove(&quot;is-open&quot;));</code></pre>
+</doc-codeblock></div>
+
+                
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+            </div>
+            <footer id="retype-content-footer" class="clear-both">
+            
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../components/icons/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">Icons</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../components/window/">
+                            <span>
+                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                <span class="block mt-1">Window</span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        </a>
+                    </div>
+                </nav>
+            </footer>
+        </main>
+
+        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                <div id="retype-footer-links" class="print:hidden">
+                    <ul class="flex flex-wrap items-center text-sm">
+                    </ul>
+                </div>
+                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"><p>© Copyright 2026. All rights reserved.</p></div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:translate-x-0 sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+        </div>
+    </div>
+
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+    <div id="retype-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Taskbar", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>

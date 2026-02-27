@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825520425548">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 4.0.1">
+
+    <!-- Primary Meta Tags -->
+    <title>Icons</title>
+    <meta name="title" content="Icons">
+    <meta name="description" content="Icons are the primary interactive elements of the NidamJS desktop. They represent applications, files, or system actions. The system uses a declarative,">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://docs.example.com/components/icons/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.example.com/components/icons/">
+    <meta property="og:title" content="Icons">
+    <meta property="og:description" content="Icons are the primary interactive elements of the NidamJS desktop. They represent applications, files, or system actions. The system uses a declarative,">
+    <meta property="og:site_name" content="Project Name">
+    <meta property="og:locale" content="en_US">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link href="../../resources/css/retype.css?v=4.0.1.825520425548" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825520425548" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825520425548" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825520425548" defer></script>
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+    <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+
+    <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+        <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+            <!-- Mobile menu button skeleton -->
+            <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-hidden rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+            <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+    
+            <!-- Logo -->
+            <div class="flex items-center justify-between h-full py-2 md:w-75">
+                <div class="flex items-center px-2 md:px-6">
+                    <a id="retype-branding-logo" href="../../" class="flex items-center leading-snug text-2xl">
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Project Name</span>
+                    </a><span id="retype-branding-label" class="inline-flex mt-1 px-2 py-1 ml-4 text-xs font-medium leading-none items-center rounded-md bg-branding-label-bg text-branding-label-text ring-1 ring-branding-label-border ring-inset md:inline-block">Docs</span>
+                </div>
+    
+                <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+            </div>
+    
+            <div class="flex justify-between md:grow">
+                <!-- Top Nav -->
+                <nav id="retype-header-nav" class="hidden md:flex">
+                    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                        
+                    </ul>
+                </nav>
+    
+                <div v-cloak class="flex justify-end grow">
+                    <div id="retype-mobile-search-button"></div>
+                    <doc-search-desktop></doc-search-desktop>
+    
+                    <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                    <doc-history></doc-history>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="retype-container" class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+        <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+        
+            <div class="flex items-center h-16 px-6">
+                <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-hidden focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+            </div>
+        
+            <div class="pl-6 mt-1 mb-4">
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            </div>
+        
+            <div class="shrink-0 mt-auto bg-transparent dark:border-base-border">
+                <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                    <span class="text-xs whitespace-nowrap">Powered by</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Sidebar component -->
+        <doc-sidebar v-cloak>
+            <template #sidebar-footer>
+                <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+        
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </template>
+        </doc-sidebar>
+
+        <div class="grow min-w-0 bg-body-bg">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+<div class="flex">
+    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+        <main class="relative pb-12 lg:pt-2">
+            <div class="retype-markdown" id="retype-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="retype-sidebar-right-toggle"></div>
+                <!-- Page content  -->
+<doc-anchor-target id="icons" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#icons">#</doc-anchor-trigger>
+        <span>Icons</span>
+    </h1>
+</doc-anchor-target>
+<p>Icons are the primary interactive elements of the NidamJS desktop. They represent applications, files, or system actions. The system uses a declarative, attribute-based grid that handles positioning, drag-and-drop, and layout persistence automatically.</p>
+<doc-anchor-target id="quick-start">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#quick-start">#</doc-anchor-trigger>
+        <span>Quick Start</span>
+    </h2>
+</doc-anchor-target>
+<p>To create a functional desktop icon grid, wrap your icons in a container using the <code translate="no" v-pre>nd-icons</code> attribute.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;section nd-icons=&quot;5:3&quot;&gt;
+  &lt;div nd-icon=&quot;1:1&quot; nd-id=&quot;browser&quot; data-modal=&quot;web-browser&quot;&gt;
+    &lt;img src=&quot;/icons/world.png&quot; alt=&quot;Browser&quot;&gt;
+    &lt;span&gt;Web Browser&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div nd-icon=&quot;2:1&quot; nd-id=&quot;trash&quot; data-modal=&quot;trash-bin&quot;&gt;
+    &lt;img src=&quot;/icons/trash.png&quot; alt=&quot;Trash&quot;&gt;
+    &lt;span&gt;Trash&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+</doc-codeblock></div>
+<hr>
+<doc-anchor-target id="core-attributes">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#core-attributes">#</doc-anchor-trigger>
+        <span>Core Attributes</span>
+    </h2>
+</doc-anchor-target>
+<p>The icon system is controlled via three main <code translate="no" v-pre>nd-</code> attributes. You generally do not need to write JavaScript to manage these; the internal <code translate="no" v-pre>IconManager</code> detects them automatically.</p>
+<doc-anchor-target id="1-the-grid-container-nd-icons">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-the-grid-container-nd-icons">#</doc-anchor-trigger>
+        <span>1. The Grid Container (<code translate="no" v-pre>nd-icons</code>)</span>
+    </h3>
+</doc-anchor-target>
+<p>Applied to the parent element to define the grid dimensions.</p>
+<ul>
+<li><strong>Format</strong>: <code translate="no" v-pre>nd-icons=&quot;COLUMNS:ROWS&quot;</code></li>
+<li><strong>Example</strong>: <code translate="no" v-pre>nd-icons=&quot;8:5&quot;</code> creates a grid with 8 columns and 5 rows.</li>
+</ul>
+<doc-anchor-target id="2-the-icon-component-nd-icon">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#2-the-icon-component-nd-icon">#</doc-anchor-trigger>
+        <span>2. The Icon Component (<code translate="no" v-pre>nd-icon</code>)</span>
+    </h3>
+</doc-anchor-target>
+<p>Applied to individual icon elements to set their initial or current position.</p>
+<ul>
+<li><strong>Format</strong>: <code translate="no" v-pre>nd-icon=&quot;COL:ROW&quot;</code></li>
+<li><strong>Behavior</strong>: If a position is already occupied, the system will automatically find the nearest available spot.</li>
+</ul>
+<doc-anchor-target id="3-the-unique-identifier-nd-id">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3-the-unique-identifier-nd-id">#</doc-anchor-trigger>
+        <span>3. The Unique Identifier (<code translate="no" v-pre>nd-id</code>)</span>
+    </h3>
+</doc-anchor-target>
+<p><strong>Required for persistence.</strong> * <strong>Purpose</strong>: This ID is used as the key when saving the icon&#x27;s position to local storage. Without an <code translate="no" v-pre>nd-id</code>, the icon will reset to its default HTML position on page refresh.</p>
+<hr>
+<doc-anchor-target id="technical-specifications">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#technical-specifications">#</doc-anchor-trigger>
+        <span>Technical Specifications</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="attribute-reference">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#attribute-reference">#</doc-anchor-trigger>
+        <span>Attribute Reference</span>
+    </h3>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Level</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>nd-icons</code></td>
+<td>Parent</td>
+<td>Yes</td>
+<td>Defines the grid size (e.g., <code translate="no" v-pre>10:6</code>). Sets CSS variables <code translate="no" v-pre>--nd-cols</code> and <code translate="no" v-pre>--nd-rows</code>.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>nd-icon</code></td>
+<td>Child</td>
+<td>Yes</td>
+<td>The <code translate="no" v-pre>X:Y</code> coordinate of the icon. Updates dynamically after a drag.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>nd-id</code></td>
+<td>Child</td>
+<td>Yes</td>
+<td>Unique string used to save/load the position from storage.</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>data-modal</code></td>
+<td>Child</td>
+<td>No</td>
+<td>The ID of the window/modal to trigger on click.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<doc-anchor-target id="features--interactions">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#features--interactions">#</doc-anchor-trigger>
+        <span>Features &amp; Interactions</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="drag-and-drop">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#drag-and-drop">#</doc-anchor-trigger>
+        <span>Drag and Drop</span>
+    </h3>
+</doc-anchor-target>
+<p>Icons feature built-in drag-and-drop logic:</p>
+<ul>
+<li><strong>Deadzone &amp; Delay</strong>: A small movement &quot;deadzone&quot; and time delay prevent accidental drags during simple clicks.</li>
+<li><strong>Ghosting</strong>: While dragging, a transparent &quot;ghost&quot; element follows the cursor (<code translate="no" v-pre>.nd-icon-ghost</code>), while the original icon remains dimmed (<code translate="no" v-pre>.is-dragging</code>).</li>
+<li><strong>Auto-Snapping</strong>: Upon release, the icon snaps to the nearest valid grid cell.</li>
+<li><strong>Collision Detection</strong>: Icons cannot overlap. If you drop an icon on an occupied cell, the move is canceled.</li>
+</ul>
+<doc-anchor-target id="persistence">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#persistence">#</doc-anchor-trigger>
+        <span>Persistence</span>
+    </h3>
+</doc-anchor-target>
+<p>The layout is automatically saved to <code translate="no" v-pre>localStorage</code> under the key <code translate="no" v-pre>nd-icons-layout</code>.</p>
+<ol>
+<li>On page load, the system checks storage for coordinates matching the icon&#x27;s <code translate="no" v-pre>nd-id</code>.</li>
+<li>If found, the <code translate="no" v-pre>nd-icon</code> attribute is updated, and the icon is moved to its last saved position.</li>
+</ol>
+<hr>
+<doc-anchor-target id="styling--customization">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#styling--customization">#</doc-anchor-trigger>
+        <span>Styling &amp; Customization</span>
+    </h2>
+</doc-anchor-target>
+<p>NidamJS icons are built with <strong>Design Tokens</strong> (CSS Variables). You can easily customize the entire desktop experience by overriding these variables in your own stylesheet.</p>
+<doc-anchor-target id="theming-hooks-css-variables">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#theming-hooks-css-variables">#</doc-anchor-trigger>
+        <span>Theming Hooks (CSS Variables)</span>
+    </h3>
+</doc-anchor-target>
+<p>All variables are defined under <code translate="no" v-pre>:root</code> but can be scoped to specific <code translate="no" v-pre>[nd-icons]</code> containers if you want different styles for different desktop areas.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Category</th>
+<th>Variable</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Layout</strong></td>
+<td><code translate="no" v-pre>--nd-gap</code></td>
+<td><code translate="no" v-pre>12px</code></td>
+<td>Spacing between grid cells.</td>
+</tr>
+<tr>
+<td></td>
+<td><code translate="no" v-pre>--nd-padding</code></td>
+<td><code translate="no" v-pre>16px</code></td>
+<td>Inner padding of the desktop container.</td>
+</tr>
+<tr>
+<td><strong>Icons</strong></td>
+<td><code translate="no" v-pre>--nd-icon-size</code></td>
+<td><code translate="no" v-pre>clamp(48px, 50%, 96px)</code></td>
+<td>Responsive sizing of the icon image.</td>
+</tr>
+<tr>
+<td></td>
+<td><code translate="no" v-pre>--nd-icon-hover-scale</code></td>
+<td><code translate="no" v-pre>1.15</code></td>
+<td>The scale factor when hovering an icon.</td>
+</tr>
+<tr>
+<td></td>
+<td><code translate="no" v-pre>--nd-icon-transition</code></td>
+<td><code translate="no" v-pre>transform 0.18s ease...</code></td>
+<td>Controls the smoothness of animations.</td>
+</tr>
+<tr>
+<td><strong>Labels</strong></td>
+<td><code translate="no" v-pre>--nd-label-bg</code></td>
+<td><code translate="no" v-pre>rgba(0, 0, 0, 0.12)</code></td>
+<td>The background color of the icon text.</td>
+</tr>
+<tr>
+<td></td>
+<td><code translate="no" v-pre>--nd-label-blur</code></td>
+<td><code translate="no" v-pre>12px</code></td>
+<td>Intensity of the glassmorphism backdrop.</td>
+</tr>
+<tr>
+<td></td>
+<td><code translate="no" v-pre>--nd-label-radius</code></td>
+<td><code translate="no" v-pre>4px</code></td>
+<td>Roundness of the label background.</td>
+</tr>
+<tr>
+<td><strong>States</strong></td>
+<td><code translate="no" v-pre>--nd-ghost-opacity</code></td>
+<td><code translate="no" v-pre>0.6</code></td>
+<td>Transparency of the icon following the mouse.</td>
+</tr>
+<tr>
+<td></td>
+<td><code translate="no" v-pre>--nd-dragging-opacity</code></td>
+<td><code translate="no" v-pre>0.3</code></td>
+<td>Transparency of the original icon during drag.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<doc-anchor-target id="customization-examples">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#customization-examples">#</doc-anchor-trigger>
+        <span>Customization Examples</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="1-dark-mode--high-visibility">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-dark-mode--high-visibility">#</doc-anchor-trigger>
+        <span>1. Dark Mode &amp; High Visibility</span>
+    </h4>
+</doc-anchor-target>
+<p>The system automatically adapts to <code translate="no" v-pre>prefers-color-scheme: dark</code>, but you can force specific colors:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-css"><code v-pre class="language-css">/* Custom &quot;Neon&quot; Theme Example */
+:root {
+  --nd-label-bg: rgba(0, 255, 65, 0.1);
+  --nd-label-border: 1px solid #00ff41;
+  --nd-label-text: #00ff41;
+  --nd-icon-hover-scale: 1.25;
+}
+</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="2-layout-overrides">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#2-layout-overrides">#</doc-anchor-trigger>
+        <span>2. Layout Overrides</span>
+    </h4>
+</doc-anchor-target>
+<p>If you want a dense, small-icon grid, you can override the variables directly on the container:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-css"><code v-pre class="language-css">.dense-grid {
+  --nd-cols: 12;
+  --nd-rows: 10;
+  --nd-icon-size: 32px;
+  --nd-gap: 4px;
+}
+</code></pre>
+</doc-codeblock></div>
+<hr>
+<doc-anchor-target id="technical-classes-reference">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#technical-classes-reference">#</doc-anchor-trigger>
+        <span>Technical Classes Reference</span>
+    </h2>
+</doc-anchor-target>
+<p>While you should primarily use variables, you can target these classes for advanced CSS overrides:</p>
+<ul>
+<li><strong><code translate="no" v-pre>[nd-icons]</code></strong>: The main grid container.</li>
+<li><strong><code translate="no" v-pre>[nd-icon]</code></strong>: The individual icon wrapper.</li>
+<li><strong><code translate="no" v-pre>[nd-icon] span</code></strong>: The label element.</li>
+<li><strong><code translate="no" v-pre>.is-dragging</code></strong>: Added to the icon currently being moved.</li>
+<li><strong><code translate="no" v-pre>.nd-icon-ghost</code></strong>: The temporary element created during a drag operation (appended to <code translate="no" v-pre>&lt;body&gt;</code>).</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: The <code translate="no" v-pre>nd-icon-ghost</code> element is removed from the DOM as soon as the mouse is released.</p>
+</blockquote>
+
+                
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+            </div>
+            <footer id="retype-content-footer" class="clear-both">
+            
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../get-started/quick-start/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">Quick Start</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../components/taskbar/">
+                            <span>
+                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                <span class="block mt-1">Taskbar</span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        </a>
+                    </div>
+                </nav>
+            </footer>
+        </main>
+
+        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                <div id="retype-footer-links" class="print:hidden">
+                    <ul class="flex flex-wrap items-center text-sm">
+                    </ul>
+                </div>
+                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"><p>© Copyright 2026. All rights reserved.</p></div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:translate-x-0 sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+        </div>
+    </div>
+
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+    <div id="retype-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Icons", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>
