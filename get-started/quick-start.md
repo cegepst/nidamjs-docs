@@ -34,19 +34,12 @@ Simply add the main stylesheet and script to your HTML file. That's it!
     <!-- Your NidamJS DOM elements go here -->
     <div nd-toast-stack data-position="bottom-right"></div>
     <div nd-desktop>
-      <!-- Hello Window -->
-      <div nd-window nd-window-endpoint="hello">
-        <!-- Window Header -->
-        <div nd-window-header>
-          <span>Hello</span>
-          <button nd-window-button="maximize" title="Maximize">[ ]</button>
-          <button nd-window-button="close" title="Close">X</button>
+      <!-- Desktop Icons Grid -->
+      <section nd-icons="8:4">
+        <div nd-icon="1:1" nd-id="hello" data-modal="hello">
+          <img src="/icons/hello.png" alt="Hello" />
         </div>
-        <!-- Window Content -->
-        <div nd-window-content>
-          <p>I am the Hello page content.</p>
-        </div>
-      </div>
+      </section>
     </div>
   </body>
 </html>
@@ -81,7 +74,16 @@ Add the `data-nd-init` attribute to the `script` tag loading your own initializa
     <script type="module" src="app.js" data-nd-init></script>
   </head>
   <body>
-    <!-- ... -->
+    <!-- Your NidamJS DOM elements go here -->
+    <div nd-toast-stack data-position="bottom-right"></div>
+    <div nd-desktop>
+      <!-- Desktop Icons Grid -->
+      <section nd-icons="8:4">
+        <div nd-icon="1:1" nd-id="hello" data-modal="hello">
+          <img src="/icons/hello.png" alt="Hello" />
+        </div>
+      </section>
+    </div>
   </body>
 </html>
 ```
