@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825536330066">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825884488028">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Quick Start</title>
@@ -27,12 +27,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.0.1.825536330066" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825884488028" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825536330066" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825884488028" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -142,7 +142,7 @@
     </h3>
 </doc-anchor-target>
 <p>Create an HTML file and add a container element where the windows will be rendered. You also need to define a taskbar if you want application management.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="1-add-the-container-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
   &lt;head&gt;
@@ -177,7 +177,7 @@
     </h3>
 </doc-anchor-target>
 <p>Import <code translate="no" v-pre>createNidamApp</code> from the library and initialize it pointing to your target container.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="2-initialize-the-app-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">import { createNidamApp } from &quot;@moonitoring/nidamjs&quot;;
 
 const app = createNidamApp({
@@ -198,7 +198,7 @@ app.initialize();</code></pre>
     </h3>
 </doc-anchor-target>
 <p>NidamJS works with <strong>endpoints</strong>. An endpoint can be a URL that returns window HTML, or a reference to a local template.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="3-open-a-window-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">// Get the window manager module
 const wm = app.getModule(&quot;window&quot;);
 
@@ -212,7 +212,7 @@ wm.open(&quot;pages/welcome.html&quot;);</code></pre>
     </h2>
 </doc-anchor-target>
 <p>For static sites, you can define windows inside <code translate="no" v-pre>&lt;template&gt;</code> tags with a <code translate="no" v-pre>data-route</code>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="static-template-usage-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;template data-route=&quot;my-app&quot;&gt;
   &lt;div class=&quot;window&quot;&gt;
     &lt;div class=&quot;window-bar&quot; data-bar&gt;
@@ -224,7 +224,7 @@ wm.open(&quot;pages/welcome.html&quot;);</code></pre>
 &lt;/template&gt;</code></pre>
 </doc-codeblock></div>
 <p>Then open it using the route name:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="static-template-usage-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">wm.open(&quot;my-app&quot;);</code></pre>
 </doc-codeblock></div>
 

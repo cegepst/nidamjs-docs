@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825536330066">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825884488028">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Taskbar</title>
@@ -27,12 +27,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.0.1.825536330066" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825884488028" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825536330066" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825884488028" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -175,7 +175,7 @@
     </h3>
 </doc-anchor-target>
 <p>The taskbar is defined in HTML using the <code translate="no" v-pre>nd-taskbar</code> attribute. Individual items use the <code translate="no" v-pre>nd-taskbar-icon</code> attribute and must map to a window endpoint via <code translate="no" v-pre>data-modal</code>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="basic-structure-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar&gt;
   &lt;div nd-taskbar-icon data-modal=&quot;terminal&quot;&gt;
     &lt;img src=&quot;/icons/terminal.png&quot; alt=&quot;Terminal&quot; /&gt;
@@ -197,14 +197,14 @@
 <p>NidamJS provides two built-in taskbar styles:</p>
 <p><strong>Default Style (Floating)</strong></p>
 <p>The default floating style positions the taskbar as a rounded bar that floats above the desktop with a glassmorphic appearance.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="taskbar-styles-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar&gt;
   &lt;!-- Icons here --&gt;
 &lt;/div&gt;</code></pre>
 </doc-codeblock></div>
 <p><strong>Extended Style (Windows-style)</strong></p>
 <p>The extended style creates a full-width bar docked to the bottom of the screen, similar to the Windows taskbar.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="taskbar-styles-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar=&quot;extend&quot;&gt;
   &lt;!-- Icons here --&gt;
 &lt;/div&gt;</code></pre>
@@ -217,15 +217,15 @@
 </doc-anchor-target>
 <p>You can change the orientation and position of the taskbar using the <code translate="no" v-pre>nd-taskbar-position</code> attribute.</p>
 <p><strong>Bottom (Default)</strong></p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="changing-position-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar nd-taskbar-position=&quot;bottom&quot;&gt;...&lt;/div&gt;</code></pre>
 </doc-codeblock></div>
 <p><strong>Left</strong></p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="changing-position-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar nd-taskbar-position=&quot;left&quot;&gt;...&lt;/div&gt;</code></pre>
 </doc-codeblock></div>
 <p><strong>Right</strong></p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="changing-position-code-3" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar nd-taskbar-position=&quot;right&quot;&gt;...&lt;/div&gt;</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="icon-labels">
@@ -235,7 +235,7 @@
     </h3>
 </doc-anchor-target>
 <p>For the extended taskbar style, you can add text labels beneath or beside icons:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="icon-labels-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar=&quot;extend&quot;&gt;
   &lt;div nd-taskbar-icon data-modal=&quot;terminal&quot;&gt;
     &lt;img src=&quot;/icons/terminal.png&quot; alt=&quot;Terminal&quot; /&gt;
@@ -244,7 +244,7 @@
 &lt;/div&gt;</code></pre>
 </doc-codeblock></div>
 <p>Or use buttons with text:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="icon-labels-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div nd-taskbar=&quot;extend&quot;&gt;
   &lt;button nd-taskbar-icon class=&quot;toolbar-btn&quot; data-modal=&quot;terminal&quot;&gt;
     Terminal
@@ -264,7 +264,7 @@
     </h3>
 </doc-anchor-target>
 <p>The <code translate="no" v-pre>TaskbarManager</code> targets specific attributes to apply logic and styling.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="dom-structure-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;!-- Taskbar Container --&gt;
 &lt;div nd-taskbar nd-taskbar-position=&quot;bottom&quot;&gt;
   &lt;!-- Inactive Icon --&gt;
@@ -781,7 +781,7 @@
         <span>Changing Taskbar Appearance</span>
     </h3>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="changing-taskbar-appearance-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-css"><code v-pre class="language-css">:root {
   /* Make the taskbar darker and more opaque */
   --nd-taskbar-bg: rgba(15, 23, 42, 0.85);
@@ -801,7 +801,7 @@
         <span>Customizing Icons</span>
     </h3>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="customizing-icons-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-css"><code v-pre class="language-css">:root {
   /* Larger icons */
   --nd-taskbar-icon-width: 64px;
@@ -819,7 +819,7 @@
         <span>Customizing the Active Indicator</span>
     </h3>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="customizing-the-active-indicator-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-css"><code v-pre class="language-css">:root {
   /* Make the indicator more prominent */
   --nd-taskbar-indicator-bg: #3b82f6;
@@ -834,7 +834,7 @@
         <span>Creating a Dark Theme Taskbar</span>
     </h3>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="creating-a-dark-theme-taskbar-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-css"><code v-pre class="language-css">:root {
   --nd-taskbar-bg: rgba(30, 41, 59, 0.9);
   --nd-taskbar-backdrop-filter: blur(16px);
@@ -850,7 +850,7 @@
         <span>Side Taskbar Configuration</span>
     </h3>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="side-taskbar-configuration-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-css"><code v-pre class="language-css">:root {
   /* Left position */
   --nd-taskbar-position: fixed;
@@ -871,7 +871,7 @@
     </h2>
 </doc-anchor-target>
 <p>When using <code translate="no" v-pre>nd-taskbar=&quot;extend&quot;</code>, additional variables customize the Windows-style appearance:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="extended-style-variables-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-css"><code v-pre class="language-css">[nd-taskbar=&quot;extend&quot;] {
   --nd-taskbar-width: 100%;
   --nd-taskbar-min-width: 100%;
@@ -1028,7 +1028,7 @@
     </h3>
 </doc-anchor-target>
 <p>To manually control taskbar icons from JavaScript:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="programmatic-control-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">// Get all taskbar icons for a specific endpoint
 const icons = document.querySelectorAll(
   '[nd-taskbar-icon][data-modal=&quot;terminal&quot;]',

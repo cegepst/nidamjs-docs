@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825536330066">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825884488028">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Code Snippets</title>
@@ -27,12 +27,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.0.1.825536330066" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825884488028" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825536330066" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825884488028" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -136,7 +136,7 @@
     </h2>
 </doc-anchor-target>
 <p>The most common way to open a window is via a button in your HTML.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="trigger-window-from-button-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;button data-modal=&quot;api/stats.html&quot; class=&quot;btn&quot;&gt;
   View Stats
 &lt;/button&gt;</code></pre>
@@ -148,7 +148,7 @@
     </h2>
 </doc-anchor-target>
 <p>Since windows are fetched as HTML, you usually handle data on the server. However, you can use <code translate="no" v-pre>window:opened</code> to inject data after loading.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="programmatic-open-with-data-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">const wm = app.getModule('window');
 
 wm.open('templates/user-profile').then((win) =&gt; {
@@ -163,7 +163,7 @@ wm.open('templates/user-profile').then((win) =&gt; {
     </h2>
 </doc-anchor-target>
 <p>NidamJS handles the ESC key by default, but you can trigger it manually.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="close-topmost-window-esc-key-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">import { Lifecycle } from &quot;nidamjs&quot;;
 
 document.addEventListener('keydown', (e) =&gt; {
@@ -182,7 +182,7 @@ document.addEventListener('keydown', (e) =&gt; {
     </h2>
 </doc-anchor-target>
 <p>Initialize third-party libraries inside a window after it opens.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="integrating-charts-chartjs-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">document.addEventListener('window:opened', (e) =&gt; {
   if (e.detail.endpoint === 'dashboard') {
     const ctx = e.detail.winElement.querySelector('#myChart');
@@ -200,7 +200,7 @@ document.addEventListener('keydown', (e) =&gt; {
     </h2>
 </doc-anchor-target>
 <p>Use the <code translate="no" v-pre>registry</code> to automatically bind logic to specific elements whenever a new window is opened.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="custom-app-registry-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">const app = createNidamApp({
   registry: [
     {

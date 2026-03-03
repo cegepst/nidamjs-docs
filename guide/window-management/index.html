@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825536330066">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825884488028">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Window Management</title>
@@ -27,12 +27,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.0.1.825536330066" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825884488028" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825536330066" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825884488028" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -136,7 +136,7 @@
     </h2>
 </doc-anchor-target>
 <p>To open a window, use the <code translate="no" v-pre>open()</code> method on the <code translate="no" v-pre>window</code> module.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="opening-a-window-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">const wm = app.getModule('window');
 
 // Opens /pages/profile.html via fetch
@@ -160,7 +160,7 @@ wm.open('pages/profile.html');</code></pre>
     </h2>
 </doc-anchor-target>
 <p>For a window to be managed by NidamJS (draggable, closable), it <strong>must</strong> have a specific structure in its HTML response.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="window-html-structure-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div class=&quot;window window-shell animate-appearance&quot;&gt;
   &lt;div class=&quot;window-bar&quot; data-bar&gt;
     &lt;strong class=&quot;window-title&quot;&gt;My Application&lt;/strong&gt;
@@ -212,7 +212,7 @@ wm.open('pages/profile.html');</code></pre>
     </h2>
 </doc-anchor-target>
 <p>You can listen for window events on the root document.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="lifecycle-events-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">document.addEventListener('window:opened', (e) =&gt; {
   const { endpoint, winElement } = e.detail;
   console.log(`Window ${endpoint} is now in the DOM`);
@@ -230,7 +230,7 @@ document.addEventListener('window:closed', (e) =&gt; {
     </h2>
 </doc-anchor-target>
 <p>Once you have a reference to a window element, you can use the Window Manager methods:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="programmatic-controls-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">const wm = app.getModule('window');
 const win = document.querySelector('.window');
 

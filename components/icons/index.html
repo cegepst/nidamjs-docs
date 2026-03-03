@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825536330066">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825884488028">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Icons</title>
@@ -27,12 +27,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.0.1.825536330066" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825884488028" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825536330066" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825884488028" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -136,7 +136,7 @@
     </h2>
 </doc-anchor-target>
 <p>To create a functional desktop icon grid, wrap your icons in a container using the <code translate="no" v-pre>nd-icons</code> attribute.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="quick-start-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;section nd-icons=&quot;5:3&quot;&gt;
   &lt;div nd-icon=&quot;1:1&quot; nd-id=&quot;browser&quot; data-modal=&quot;web-browser&quot;&gt;
     &lt;img src=&quot;/icons/world.png&quot; alt=&quot;Browser&quot;&gt;
@@ -301,7 +301,7 @@
 <td>Spacing between grid cells.</td>
 </tr>
 <tr>
-<td></td>
+<td> </td>
 <td><code translate="no" v-pre>--nd-padding</code></td>
 <td><code translate="no" v-pre>16px</code></td>
 <td>Inner padding of the desktop container.</td>
@@ -313,13 +313,13 @@
 <td>Responsive sizing of the icon image.</td>
 </tr>
 <tr>
-<td></td>
+<td> </td>
 <td><code translate="no" v-pre>--nd-icon-hover-scale</code></td>
 <td><code translate="no" v-pre>1.15</code></td>
 <td>The scale factor when hovering an icon.</td>
 </tr>
 <tr>
-<td></td>
+<td> </td>
 <td><code translate="no" v-pre>--nd-icon-transition</code></td>
 <td><code translate="no" v-pre>transform 0.18s ease...</code></td>
 <td>Controls the smoothness of animations.</td>
@@ -331,13 +331,13 @@
 <td>The background color of the icon text.</td>
 </tr>
 <tr>
-<td></td>
+<td> </td>
 <td><code translate="no" v-pre>--nd-label-blur</code></td>
 <td><code translate="no" v-pre>12px</code></td>
 <td>Intensity of the glassmorphism backdrop.</td>
 </tr>
 <tr>
-<td></td>
+<td> </td>
 <td><code translate="no" v-pre>--nd-label-radius</code></td>
 <td><code translate="no" v-pre>4px</code></td>
 <td>Roundness of the label background.</td>
@@ -349,7 +349,7 @@
 <td>Transparency of the icon following the mouse.</td>
 </tr>
 <tr>
-<td></td>
+<td> </td>
 <td><code translate="no" v-pre>--nd-dragging-opacity</code></td>
 <td><code translate="no" v-pre>0.3</code></td>
 <td>Transparency of the original icon during drag.</td>
@@ -371,7 +371,7 @@
     </h4>
 </doc-anchor-target>
 <p>The system automatically adapts to <code translate="no" v-pre>prefers-color-scheme: dark</code>, but you can force specific colors:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="1-dark-mode--high-visibility-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-css"><code v-pre class="language-css">/* Custom &quot;Neon&quot; Theme Example */
 :root {
   --nd-label-bg: rgba(0, 255, 65, 0.1);
@@ -388,7 +388,7 @@
     </h4>
 </doc-anchor-target>
 <p>If you want a dense, small-icon grid, you can override the variables directly on the container:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="2-layout-overrides-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-css"><code v-pre class="language-css">.dense-grid {
   --nd-cols: 12;
   --nd-rows: 10;

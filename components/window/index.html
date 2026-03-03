@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825536330066">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825884488028">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Window</title>
@@ -27,12 +27,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.0.1.825536330066" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825884488028" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825536330066" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825536330066" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825884488028" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -165,7 +165,7 @@ windows, managed by a z-index stacking context.</p>
     </h3>
 </doc-anchor-target>
 <p>Windows are typically served as HTML strings (e.g., from an endpoint or a <code translate="no" v-pre>&lt;template&gt;</code>). They must contain the <code translate="no" v-pre>.window</code> class and a draggable bar with the <code translate="no" v-pre>data-bar</code> attribute.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="basic-structure-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;div class=&quot;window window-shell animate-appearance&quot;&gt;
   &lt;div class=&quot;window-bar&quot; data-bar&gt;
     &lt;strong class=&quot;window-title&quot;&gt;My Window&lt;/strong&gt;
@@ -192,7 +192,7 @@ windows, managed by a z-index stacking context.</p>
     </h3>
 </doc-anchor-target>
 <p>Use the <code translate="no" v-pre>windowManager.open()</code> method or the <code translate="no" v-pre>data-modal</code> attribute on a trigger element.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="opening-a-window-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">// Via API
 app.getModule(&quot;window&quot;).open(&quot;path/to/content.html&quot;);
 
@@ -253,7 +253,7 @@ app.getModule(&quot;window&quot;).open(&quot;path/to/content.html&quot;);
     </h3>
 </doc-anchor-target>
 <p>You can customize how windows appear and disappear:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="css-animations-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-css"><code v-pre class="language-css">@keyframes window-appear {
   from {
     opacity: 0;
@@ -282,7 +282,7 @@ app.getModule(&quot;window&quot;).open(&quot;path/to/content.html&quot;);
     </h3>
 </doc-anchor-target>
 <p>When initializing <code translate="no" v-pre>createNidamApp</code>, configure window behavior under <code translate="no" v-pre>windowManager.config</code>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="configuration-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">const app = createNidamApp({
   windowManager: {
     config: {
