@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825890199727">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825891684932">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.1.0">
@@ -27,12 +27,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../resources/css/retype.css?v=4.1.0.825890199727" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=4.1.0.825891684932" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=4.1.0.825890199727" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=4.1.0.825891684932" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.1.0.825890199727" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=4.1.0.825890199727" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.1.0.825891684932" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=4.1.0.825891684932" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -167,8 +167,8 @@
     </h2>
 </doc-anchor-target>
 <div id="manual-initialization-example-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">import initNidamApp from '../../dist/nidam.es.js';
-import config from '../shared/example.config.json' with { type: 'json' };
+<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">import initNidamApp from &quot;../../dist/nidam.es.js&quot;;
+import config from &quot;../shared/example.config.json&quot; with { type: &quot;json&quot; };
 
 initNidamApp(config);</code></pre>
 </doc-codeblock></div>
@@ -181,15 +181,15 @@ initNidamApp(config);</code></pre>
 </doc-anchor-target>
 <div id="configuration-structure-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">type NidamConfig = {
-  root?: Document | HTMLElement
-  modalContainer?: string
-  pendingModalDatasetKey?: string
-  registry?: any[]
-  refreshMap?: Record&lt;string, string[]&gt; | null
-  refreshTimeout?: number
-  notify?: (level: string, message: string) =&gt; void
-  windowManager?: WindowManagerConfig
-}</code></pre>
+  root?: Document | HTMLElement;
+  modalContainer?: string;
+  pendingModalDatasetKey?: string;
+  registry?: any[];
+  refreshMap?: Record&lt;string, string[]&gt; | null;
+  refreshTimeout?: number;
+  notify?: (level: string, message: string) =&gt; void;
+  windowManager?: WindowManagerConfig;
+};</code></pre>
 </doc-codeblock></div>
 <hr>
 <doc-anchor-target id="default-configuration">
@@ -233,7 +233,7 @@ initNidamApp(config);</code></pre>
     </h4>
 </doc-anchor-target>
 <div id="example-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">root: document.querySelector(&quot;#desktop&quot;)</code></pre>
+<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">root: document.querySelector(&quot;#desktop&quot;);</code></pre>
 </doc-codeblock></div>
 <p>Use this if you want multiple isolated desktops.</p>
 <hr>
@@ -247,7 +247,7 @@ initNidamApp(config);</code></pre>
 <strong>Default:</strong> <code translate="no" v-pre>&quot;#target&quot;</code></p>
 <p>CSS selector where windows are injected.</p>
 <div id="modalcontainer-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">modalContainer: &quot;#desktop-layer&quot;</code></pre>
+<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">modalContainer: &quot;#desktop-layer&quot;;</code></pre>
 </doc-codeblock></div>
 <hr>
 <doc-anchor-target id="pendingmodaldatasetkey">
@@ -312,8 +312,8 @@ initNidamApp(config);</code></pre>
 <p>Custom logger.</p>
 <div id="notify-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-javascript"><code v-pre class="language-javascript">notify: (level, message) =&gt; {
-  myLogger.send(level, message)
-}</code></pre>
+  myLogger.send(level, message);
+};</code></pre>
 </doc-codeblock></div>
 <hr>
 <doc-anchor-target id="windowmanager-configuration">
@@ -324,23 +324,23 @@ initNidamApp(config);</code></pre>
 </doc-anchor-target>
 <div id="windowmanager-configuration-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-typescript"><code v-pre class="language-typescript">type WindowManagerConfig = {
-  zIndexBase?: number
-  layoutStabilizationMs?: number
-  cascadeOffset?: number
-  cooldownMs?: number
-  maxWindows?: number
-  snapGap?: number
-  taskbarHeight?: number
-  snapThreshold?: number
-  dragThreshold?: number
-  resizeDebounceMs?: number
-  animationDurationMs?: number
-  defaultWidth?: number
-  defaultHeight?: number
-  minMargin?: number
-  edgeDetectionRatio?: number
-  scrollRestoreTimeoutMs?: number
-}</code></pre>
+  zIndexBase?: number;
+  layoutStabilizationMs?: number;
+  cascadeOffset?: number;
+  cooldownMs?: number;
+  maxWindows?: number;
+  snapGap?: number;
+  taskbarHeight?: number;
+  snapThreshold?: number;
+  dragThreshold?: number;
+  resizeDebounceMs?: number;
+  animationDurationMs?: number;
+  defaultWidth?: number;
+  defaultHeight?: number;
+  minMargin?: number;
+  edgeDetectionRatio?: number;
+  scrollRestoreTimeoutMs?: number;
+};</code></pre>
 </doc-codeblock></div>
 <hr>
 <doc-anchor-target id="full-windowmanager-options">
@@ -529,9 +529,9 @@ Window 3: 160,160</code></pre>
     cascadeOffset: 40,
     taskbarHeight: 48,
     animationDurationMs: 300,
-    edgeDetectionRatio: 0.5
-  }
-})</code></pre>
+    edgeDetectionRatio: 0.5,
+  },
+});</code></pre>
 </doc-codeblock></div>
 <hr>
 <doc-anchor-target id="performance-tuning-guide">
