@@ -38,6 +38,7 @@ Simply add the main stylesheet and script to your HTML file. That's it!
       <section nd-icons="8:4">
         <div nd-icon="1:1" nd-id="hello" data-modal="hello">
           <img src="/icons/hello.png" alt="Hello" />
+          <span>Hello</span>
         </div>
       </section>
     </div>
@@ -81,6 +82,7 @@ Add the `data-nd-init` attribute to the `script` tag loading your own initializa
       <section nd-icons="8:4">
         <div nd-icon="1:1" nd-id="hello" data-modal="hello">
           <img src="/icons/hello.png" alt="Hello" />
+          <span>Hello</span>
         </div>
       </section>
     </div>
