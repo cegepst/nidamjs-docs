@@ -245,96 +245,76 @@ All tokens are defined under `:root`.
 
 ### Window Base Tokens
 
-| Variable                    | Default         | Description       |
-| --------------------------- | --------------- | ----------------- |
-| `--nd-window-bg`            | `#ffffff`       | Window background |
-| `--nd-window-border`        | rgba(...)       | Border color      |
-| `--nd-window-shadow`        | 0 12px 32px ... | Box shadow        |
-| `--nd-window-bg-glass`      | rgba(...)       | Glass background  |
-| `--nd-window-backdrop-blur` | 16px            | Blur intensity    |
+| Variable                    | Light Default                  | Dark Default                  |
+| --------------------------- | ------------------------------ | ----------------------------- |
+| `--nd-window-bg`            | `#ffffff`                      | `#1f2937`                     |
+| `--nd-window-border`        | `rgba(0,0,0,0.08)`             | `rgba(255,255,255,0.08)`      |
+| `--nd-window-shadow`        | `0 12px 32px rgba(0,0,0,0.15)` | `0 20px 40px rgba(0,0,0,0.5)` |
+| `--nd-window-bg-glass`      | `rgba(255,255,255,0.7)`        | (inherits bg)                 |
+| `--nd-window-backdrop-blur` | `16px`                         | `16px`                        |
 
 ---
 
 ### Header Tokens
 
-| Variable                 | Description       |
-| ------------------------ | ----------------- |
-| `--nd-header-bg`         | Header background |
-| `--nd-header-text`       | Header text color |
-| `--nd-header-border`     | Divider border    |
-| `--nd-header-bg-focused` | Focused header bg |
+| Variable                 | Light                        | Dark                               |
+| ------------------------ | ---------------------------- | ---------------------------------- |
+| `--nd-header-bg`         | `#ffffff`                    | `#1f2937`                          |
+| `--nd-header-border`     | `rgba(0,0,0,0.06)`           | `rgba(255,255,255,0.08)`           |
+| `--nd-header-text`       | `#111827`                    | `#f3f4f6`                          |
+| `--nd-header-bg-focused` | `#f9fafb`                    | `#111827`                          |
+| `--nd-header-focus-ring` | `0 0 0 1px rgba(0,0,0,0.06)` | `0 0 0 1px rgba(255,255,255,0.08)` |
 
 ---
 
 ### Button Tokens
 
-| Variable                  | Description        |
-| ------------------------- | ------------------ |
-| `--nd-btn-hover-bg`       | Hover background   |
-| `--nd-btn-close-hover-bg` | Close button hover |
-| `--nd-btn-max-hover-bg`   | Maximize hover     |
+#### Light Defaults
+
+| Variable                    | Value                  |
+| --------------------------- | ---------------------- |
+| `--nd-btn-bg`               | `transparent`          |
+| `--nd-btn-border`           | `rgba(0,0,0,0.08)`     |
+| `--nd-btn-text`             | `inherit`              |
+| `--nd-btn-hover-bg`         | `rgba(0,0,0,0.05)`     |
+| `--nd-btn-hover-border`     | `rgba(0,0,0,0.15)`     |
+| `--nd-btn-close-hover-bg`   | `rgba(220,38,38,0.12)` |
+| `--nd-btn-close-hover-text` | `#b91c1c`              |
+| `--nd-btn-max-hover-bg`     | `rgba(0,0,0,0.08)`     |
+
+#### Dark Overrides
+
+| Variable                    | Value                    |
+| --------------------------- | ------------------------ |
+| `--nd-btn-border`           | `rgba(255,255,255,0.08)` |
+| `--nd-btn-hover-bg`         | `rgba(255,255,255,0.08)` |
+| `--nd-btn-hover-border`     | `rgba(255,255,255,0.15)` |
+| `--nd-btn-close-hover-bg`   | `rgba(248,113,113,0.18)` |
+| `--nd-btn-close-hover-text` | `#fca5a5`                |
+| `--nd-btn-max-hover-bg`     | `rgba(255,255,255,0.12)` |
 
 ---
 
 ### Snap Tokens
 
-| Variable           | Description             |
-| ------------------ | ----------------------- |
-| `--nd-snap-border` | Snap outline color      |
-| `--nd-snap-bg`     | Snap preview background |
-| `--nd-snap-radius` | Border radius           |
+| Variable                 | Light              | Dark                     |
+| ------------------------ | ------------------ | ------------------------ |
+| `--nd-snap-border`       | `rgba(0,0,0,0.25)` | `rgba(255,255,255,0.35)` |
+| `--nd-snap-bg`           | `rgba(0,0,0,0.08)` | `rgba(255,255,255,0.08)` |
+| `--nd-snap-border-width` | `2px`              | `2px`                    |
+| `--nd-snap-radius`       | `0.85rem`          | `0.85rem`                |
 
 ---
 
-## Customization Examples
+## Variants
 
-### 1. Glass Window Variant
+### Glass Window Variant
 
 ```html
 <div nd-window nd-variant="glass">
 ```
 
 Uses backdrop blur + transparency.
-
----
-
-### 2. Custom Dark Theme
-
-```css
-:root {
-  --nd-window-bg: #0f172a;
-  --nd-window-border: rgba(255,255,255,0.1);
-  --nd-header-bg: #111827;
-  --nd-header-text: #e5e7eb;
-}
-```
-
----
-
-### 3. Disable Rounded Corners When Maximized
-
-Already handled automatically:
-
-```css
-[nd-window].maximized {
-  border-radius: 0 !important;
-}
-```
-
----
-
-## Technical Classes Reference
-
-| Selector              | Purpose                |
-| --------------------- | ---------------------- |
-| `[nd-window]`         | Base window            |
-| `[nd-window-header]`  | Draggable header       |
-| `[nd-window-content]` | Content container      |
-| `[nd-window-button]`  | Window control buttons |
-| `.focused`            | Active window          |
-| `.maximized`          | Fullscreen state       |
-| `.tiled`              | Snapped state          |
-| `.snap-indicator`     | Visual snap preview    |
 
 ---
 
@@ -357,16 +337,6 @@ manager.toggleMaximize(win)
 manager.focus(win)
 manager.getWindows()
 ```
-
----
-
-## Best Practices
-
-* Always define `nd-window-endpoint`
-* Keep header minimal (title + buttons)
-* Avoid heavy layout logic inside header
-* Use `data-modal` instead of manual JS when possible
-* Let the manager control z-index — never override it manually
 
 ---
 
