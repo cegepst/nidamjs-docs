@@ -34,7 +34,19 @@ Simply add the main stylesheet and script to your HTML file. That's it!
     <!-- Your NidamJS DOM elements go here -->
     <div nd-toast-stack data-position="bottom-right"></div>
     <div nd-desktop>
-      <!-- ... -->
+      <!-- Hello Window -->
+      <div nd-window nd-window-endpoint="hello">
+        <!-- Window Header -->
+        <div nd-window-header>
+          <span>Hello</span>
+          <button nd-window-button="maximize" title="Maximize">[ ]</button>
+          <button nd-window-button="close" title="Close">X</button>
+        </div>
+        <!-- Window Content -->
+        <div nd-window-content>
+          <p>I am the Hello page content.</p>
+        </div>
+      </div>
     </div>
   </body>
 </html>
