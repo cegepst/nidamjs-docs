@@ -1,5 +1,5 @@
 ---
-icon: settings
+icon: gear
 ---
 
 # Configuration
@@ -32,7 +32,7 @@ To use a custom configuration, the script **must be loaded manually**.
 
 ```html
 <script type="module" src="example.js" data-nd-init></script>
-````
+```
 
 > ⚠ Custom config only works if NidamJS is initialized manually.
 
@@ -41,8 +41,8 @@ To use a custom configuration, the script **must be loaded manually**.
 ## Manual Initialization Example
 
 ```js
-import initNidamApp from '../../dist/nidam.es.js';
-import config from '../shared/example.config.json' with { type: 'json' };
+import initNidamApp from "../../dist/nidam.es.js";
+import config from "../shared/example.config.json" with { type: "json" };
 
 initNidamApp(config);
 ```
@@ -53,15 +53,15 @@ initNidamApp(config);
 
 ```ts
 type NidamConfig = {
-  root?: Document | HTMLElement
-  modalContainer?: string
-  pendingModalDatasetKey?: string
-  registry?: any[]
-  refreshMap?: Record<string, string[]> | null
-  refreshTimeout?: number
-  notify?: (level: string, message: string) => void
-  windowManager?: WindowManagerConfig
-}
+  root?: Document | HTMLElement;
+  modalContainer?: string;
+  pendingModalDatasetKey?: string;
+  registry?: any[];
+  refreshMap?: Record<string, string[]> | null;
+  refreshTimeout?: number;
+  notify?: (level: string, message: string) => void;
+  windowManager?: WindowManagerConfig;
+};
 ```
 
 ---
@@ -95,7 +95,7 @@ Defines where event delegation is attached.
 #### Example
 
 ```js
-root: document.querySelector("#desktop")
+root: document.querySelector("#desktop");
 ```
 
 Use this if you want multiple isolated desktops.
@@ -110,7 +110,7 @@ Use this if you want multiple isolated desktops.
 CSS selector where windows are injected.
 
 ```js
-modalContainer: "#desktop-layer"
+modalContainer: "#desktop-layer";
 ```
 
 ---
@@ -177,8 +177,8 @@ Custom logger.
 
 ```js
 notify: (level, message) => {
-  myLogger.send(level, message)
-}
+  myLogger.send(level, message);
+};
 ```
 
 ---
@@ -187,23 +187,23 @@ notify: (level, message) => {
 
 ```ts
 type WindowManagerConfig = {
-  zIndexBase?: number
-  layoutStabilizationMs?: number
-  cascadeOffset?: number
-  cooldownMs?: number
-  maxWindows?: number
-  snapGap?: number
-  taskbarHeight?: number
-  snapThreshold?: number
-  dragThreshold?: number
-  resizeDebounceMs?: number
-  animationDurationMs?: number
-  defaultWidth?: number
-  defaultHeight?: number
-  minMargin?: number
-  edgeDetectionRatio?: number
-  scrollRestoreTimeoutMs?: number
-}
+  zIndexBase?: number;
+  layoutStabilizationMs?: number;
+  cascadeOffset?: number;
+  cooldownMs?: number;
+  maxWindows?: number;
+  snapGap?: number;
+  taskbarHeight?: number;
+  snapThreshold?: number;
+  dragThreshold?: number;
+  resizeDebounceMs?: number;
+  animationDurationMs?: number;
+  defaultWidth?: number;
+  defaultHeight?: number;
+  minMargin?: number;
+  edgeDetectionRatio?: number;
+  scrollRestoreTimeoutMs?: number;
+};
 ```
 
 ---
@@ -386,9 +386,9 @@ initNidamApp({
     cascadeOffset: 40,
     taskbarHeight: 48,
     animationDurationMs: 300,
-    edgeDetectionRatio: 0.5
-  }
-})
+    edgeDetectionRatio: 0.5,
+  },
+});
 ```
 
 ---
@@ -399,17 +399,17 @@ For heavy apps:
 
 Increase:
 
-* `layoutStabilizationMs`
-* `resizeDebounceMs`
-* `scrollRestoreTimeoutMs`
+- `layoutStabilizationMs`
+- `resizeDebounceMs`
+- `scrollRestoreTimeoutMs`
 
 For snappier UX:
 
 Decrease:
 
-* `dragThreshold`
-* `cooldownMs`
-* `snapThreshold`
+- `dragThreshold`
+- `cooldownMs`
+- `snapThreshold`
 
 ---
 
@@ -417,19 +417,19 @@ Decrease:
 
 #### Safe to Modify
 
-* Snap values
-* Drag sensitivity
-* Animation timing
-* Cascade spacing
-* Max windows
-* Logging
+- Snap values
+- Drag sensitivity
+- Animation timing
+- Cascade spacing
+- Max windows
+- Logging
 
 #### Be Careful With
 
-* `zIndexBase`
-* `root`
-* `modalContainer`
-* `edgeDetectionRatio`
+- `zIndexBase`
+- `root`
+- `modalContainer`
+- `edgeDetectionRatio`
 
 These affect system-level behavior.
 

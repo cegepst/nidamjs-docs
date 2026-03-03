@@ -2,47 +2,37 @@
 icon: rocket
 ---
 
-# Quick Start
+# Quickstart
 
-Get your first **NidamJS** desktop environment up and running in just a few minutes.
+Getting started with NidamJS is quick and flexible. Depending on your needs, you can either drop in the script for automatic initialization with default settings or take full manual control to pass a custom configuration object.
 
-This guide walks you through:
-
-1. Setting up the desktop container
-2. Creating a window
-3. Launching your first application
+This guide covers both approaches.
 
 ---
 
-## 1. Set Up the Desktop Container
+## Method 1: Automatic Initialization (Zero-Config)
 
-Create a basic HTML file and define the structure of your desktop.
+For most drop-in use cases, NidamJS can initialize itself automatically when the script loads. It will use its default configuration and automatically bind to elements in the DOM out-of-the-box.
 
-You’ll need:
-
-- A **desktop container**
-- A **window target**
-- Optional **desktop icons**
-- A **taskbar** (recommended for managing windows)
+**How to use:**
+Simply add the main stylesheet and script to your HTML file. That's it!
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NidamJS Desktop</title>
+    <title>NidamJS App</title>
 
-    <!-- NidamJS default styles -->
-    <link rel="stylesheet" href="node_modules/nidamjs/dist/nidam.css" />
+    <!-- Include the NidamJS CSS -->
+    <link href="/node_modules/nidamjs/dist/nidam.css" rel="stylesheet" />
+
+    <!-- Include the NidamJS ES Module -->
+    <script type="module" src="/node_modules/nidamjs/dist/nidam.es.js"></script>
   </head>
-
-  <body>
-    <!-- Desktop Root -->
+  <body>    
     <div nd-desktop>
-      <!-- Window Render Target -->
-      <div id="target"></div>
-
+        
       <!-- Desktop Icons Grid -->
       <section nd-icons="8:4">
         <div nd-icon="1:1" nd-id="hello" data-modal="hello">
@@ -57,48 +47,104 @@ You’ll need:
           <img src="/icons/hello.png" alt="Hello" />
         </div>
       </div>
+      
+      <!-- Window Render Target -->
+      <div id="target"></div>
+      
+      <!-- Toasts notification -->
+      <div nd-toast-stack data-position="bottom-right"></div>
     </div>
-
-    <!-- NidamJS module -->
-    <script type="module" src="node_modules/nidamjs/dist/nidam.es.js"></script>
   </body>
 </html>
 ```
 
+Under the hood, NidamJS determines if manual control is requested. If it finds no hints of manual initialization, it automatically calls [initNidamApp()].
+
 ---
 
-## 2. Create Your First Window
+## Method 2: Custom Configuration (Manual Initialization)
 
-Now define a window component that will be opened when clicking the icon.
+If you need to define custom behaviors (like window thresholds, grid sizing, or custom event registries), you'll want to initialize NidamJS manually.
+
+To do this, NidamJS requires two steps:
+
+1. Signal to the library **not** to auto-initialize by adding the `data-nd-init` attribute to your script tag.
+2. Manually import and call [initNidamApp(config)] inside your script.
+
+### Step 1: Update your HTML
+
+Add the `data-nd-init` attribute to the `script` tag loading your own initialization logic:
 
 ```html
-<!-- Hello Window -->
-<div nd-window nd-window-endpoint="hello">
-  <!-- Window Header -->
-  <div nd-window-header>
-    <span>Hello</span>
-    <button nd-window-button="maximize" title="Maximize">[ ]</button>
-    <button nd-window-button="close" title="Close">X</button>
-  </div>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>NidamJS Custom App</title>
+    <link href="/node_modules/nidamjs/dist/nidam.css" rel="stylesheet" />
 
-  <!-- Window Content -->
-  <div nd-window-content>
-    <p>I am the Hello page content.</p>
-  </div>
-</div>
+    <!-- Notice the data-nd-init attribute to pause auto-loading! -->
+    <script type="module" src="app.js" data-nd-init></script>
+  </head>
+  <body>
+    <div nd-desktop>
+        
+      <!-- Desktop Icons Grid -->
+      <section nd-icons="8:4">
+        <div nd-icon="1:1" nd-id="hello" data-modal="hello">
+          <img src="/icons/hello.png" alt="Hello" />
+          <span>Hello</span>
+        </div>
+      </section>
+
+      <!-- Taskbar -->
+      <div nd-taskbar>
+        <div nd-taskbar-icon data-modal="hello">
+          <img src="/icons/hello.png" alt="Hello" />
+        </div>
+      </div>
+      
+      <!-- Window Render Target -->
+      <div id="target"></div>
+      
+      <!-- Toasts notification -->
+      <div nd-toast-stack data-position="bottom-right"></div>
+      
+    </div>
+  </body>
+</html>
 ```
 
----
+### Step 2: Initialize in JavaScript
 
-## 3. That’s It 🎉
+Inside your `app.js` file, you can now import [initNidamApp] (the default export), fetch or define your configuration, and start the application.
 
-You now have:
+```javascript
+// app.js
 
-- A working desktop
-- A clickable desktop icon
-- A taskbar integration
-- A fully functional window
+// 1. Import the initializer from the library
+import initNidamApp from "nidamjs";
 
-You’ve just created your first NidamJS desktop application.
+// 2. Define or import your configuration
+// You can supply an object directly:
+const myConfig = {
+  windowManager: {
+    zIndexBase: 100,
+    resizeDebounceMs: 200,
+  },
+  refreshTimeout: 5000,
+};
 
----
+// Or import from a JSON file (standard ES module feature):
+// import myConfig from "./config.json" with { type: "json" };
+
+// 3. Boot up the app!
+const appInstance = initNidamApp(myConfig);
+
+// (Optional) Access internal managers explicitly:
+// const winManager = appInstance.getModule("window");
+// const delegator = appInstance.getModule("delegator");
+```
+
+> [!TIP]
+> **Config Formats**: [initNidamApp] accepts either a native Javascript object or a JSON string. If a JSON string is passed, NidamJS will parse it internally, falling back to default settings automatically if it encounters invalid JSON!
