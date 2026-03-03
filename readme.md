@@ -21,7 +21,11 @@ enables windows, taskbar, icons, and related UI/UX features without requiring ba
 Get up and running in seconds.
 
 ```html
-<script src="https://unpkg.com/nidamjs/dist/nidam.js"></script>
+<!-- Include the NidamJS CSS -->
+<link href="https://unpkg.com/nidamjs/dist/nidam.css" rel="stylesheet" />
+
+<!-- Include the NidamJS ES Module -->
+<script type="module" src="https://unpkg.com/nidamjs/dist/nidam.es.js"></script>
 ```
 
 ## Explore the Docs
