@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825884488028">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825884506522">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.1.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Quick Start</title>
     <meta name="title" content="Quick Start">
-    <meta name="description" content="Get your first NidamJS desktop environment running in minutes.">
+    <meta name="description" content="Get your first NidamJS desktop environment up and running in just a few minutes.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.example.com/get-started/quick-start/">
@@ -21,18 +21,18 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.example.com/get-started/quick-start/">
     <meta property="og:title" content="Quick Start">
-    <meta property="og:description" content="Get your first NidamJS desktop environment running in minutes.">
-    <meta property="og:site_name" content="Project Name">
+    <meta property="og:description" content="Get your first NidamJS desktop environment up and running in just a few minutes.">
+    <meta property="og:site_name" content="NidamJS">
     <meta property="og:locale" content="en_US">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.1.0.825884488028" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825884506522" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825884506522" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825884488028" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825884506522" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825884506522" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -48,7 +48,7 @@
             <div class="flex items-center justify-between h-full py-2 md:w-75">
                 <div class="flex items-center px-2 md:px-6">
                     <a id="retype-branding-logo" href="../../" class="flex items-center leading-snug text-2xl">
-                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Project Name</span>
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">NidamJS</span>
                     </a><span id="retype-branding-label" class="inline-flex mt-1 px-2 py-1 ml-4 text-xs font-medium leading-none items-center rounded-md bg-branding-label-bg text-branding-label-text ring-1 ring-branding-label-border ring-inset md:inline-block">Docs</span>
                 </div>
     
@@ -128,105 +128,107 @@
         <span>Quick Start</span>
     </h1>
 </doc-anchor-target>
-<p>Get your first NidamJS desktop environment running in minutes.</p>
-<doc-anchor-target id="basic-usage">
+<p>Get your first <strong>NidamJS</strong> desktop environment up and running in just a few minutes.</p>
+<p>This guide walks you through:</p>
+<ol>
+<li>Setting up the desktop container</li>
+<li>Creating a window</li>
+<li>Launching your first application</li>
+</ol>
+<hr>
+<doc-anchor-target id="1-set-up-the-desktop-container">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#basic-usage">#</doc-anchor-trigger>
-        <span>Basic Usage</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-set-up-the-desktop-container">#</doc-anchor-trigger>
+        <span>1. Set Up the Desktop Container</span>
     </h2>
 </doc-anchor-target>
-<doc-anchor-target id="1-add-the-container">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#1-add-the-container">#</doc-anchor-trigger>
-        <span>1. Add the container</span>
-    </h3>
-</doc-anchor-target>
-<p>Create an HTML file and add a container element where the windows will be rendered. You also need to define a taskbar if you want application management.</p>
-<div id="1-add-the-container-code-1" class="codeblock-wrapper"><doc-codeblock>
+<p>Create a basic HTML file and define the structure of your desktop.</p>
+<p>You’ll need:</p>
+<ul>
+<li>A <strong>desktop container</strong></li>
+<li>A <strong>window target</strong></li>
+<li>Optional <strong>desktop icons</strong></li>
+<li>A <strong>taskbar</strong> (recommended for managing windows)</li>
+</ul>
+<div id="1-set-up-the-desktop-container-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
   &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot; /&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
     &lt;title&gt;NidamJS Desktop&lt;/title&gt;
-    &lt;!-- Default styles from the package --&gt;
-    &lt;link
-      rel=&quot;stylesheet&quot;
-      href=&quot;node_modules/@moonitoring/nidamjs/dist/nidam.css&quot;
-    /&gt;
+
+    &lt;!-- NidamJS default styles --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;node_modules/nidamjs/dist/nidam.css&quot; /&gt;
   &lt;/head&gt;
+
   &lt;body&gt;
+    &lt;!-- Desktop Root --&gt;
     &lt;div nd-desktop&gt;
-      &lt;!-- Target for windows --&gt;
+      &lt;!-- Window Render Target --&gt;
       &lt;div id=&quot;target&quot;&gt;&lt;/div&gt;
 
+      &lt;!-- Desktop Icons Grid --&gt;
+      &lt;section nd-icons=&quot;8:4&quot;&gt;
+        &lt;div nd-icon=&quot;1:1&quot; nd-id=&quot;hello&quot; data-modal=&quot;hello&quot;&gt;
+          &lt;img src=&quot;/icons/hello.png&quot; alt=&quot;Hello&quot; /&gt;
+          &lt;span&gt;Hello&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
       &lt;!-- Taskbar --&gt;
-      &lt;div nd-taskbar tb-position=&quot;bottom&quot;&gt;
-        &lt;button tb-icon data-modal=&quot;app-one&quot;&gt;App 1&lt;/button&gt;
+      &lt;div nd-taskbar&gt;
+        &lt;div nd-taskbar-icon data-modal=&quot;hello&quot;&gt;
+          &lt;img src=&quot;/icons/hello.png&quot; alt=&quot;Hello&quot; /&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;script type=&quot;module&quot; src=&quot;/src/main.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- NidamJS module --&gt;
+    &lt;script type=&quot;module&quot; src=&quot;node_modules/nidamjs/dist/nidam.es.js&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="2-initialize-the-app">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#2-initialize-the-app">#</doc-anchor-trigger>
-        <span>2. Initialize the App</span>
-    </h3>
-</doc-anchor-target>
-<p>Import <code translate="no" v-pre>createNidamApp</code> from the library and initialize it pointing to your target container.</p>
-<div id="2-initialize-the-app-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">import { createNidamApp } from &quot;@moonitoring/nidamjs&quot;;
-
-const app = createNidamApp({
-  modalContainer: &quot;#target&quot;,
-  windowManager: {
-    config: {
-      maxWindows: 5,
-    },
-  },
-});
-
-app.initialize();</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="3-open-a-window">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#3-open-a-window">#</doc-anchor-trigger>
-        <span>3. Open a Window</span>
-    </h3>
-</doc-anchor-target>
-<p>NidamJS works with <strong>endpoints</strong>. An endpoint can be a URL that returns window HTML, or a reference to a local template.</p>
-<div id="3-open-a-window-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">// Get the window manager module
-const wm = app.getModule(&quot;window&quot;);
-
-// Open a window by its endpoint/URL
-wm.open(&quot;pages/welcome.html&quot;);</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="static-template-usage">
+<hr>
+<doc-anchor-target id="2-create-your-first-window">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#static-template-usage">#</doc-anchor-trigger>
-        <span>Static Template Usage</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#2-create-your-first-window">#</doc-anchor-trigger>
+        <span>2. Create Your First Window</span>
     </h2>
 </doc-anchor-target>
-<p>For static sites, you can define windows inside <code translate="no" v-pre>&lt;template&gt;</code> tags with a <code translate="no" v-pre>data-route</code>.</p>
-<div id="static-template-usage-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;template data-route=&quot;my-app&quot;&gt;
-  &lt;div class=&quot;window&quot;&gt;
-    &lt;div class=&quot;window-bar&quot; data-bar&gt;
-      &lt;strong&gt;My App&lt;/strong&gt;
-      &lt;button data-close&gt;x&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;window-content&quot;&gt;Hello World&lt;/div&gt;
+<p>Now define a window component that will be opened when clicking the icon.</p>
+<div id="2-create-your-first-window-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;!-- Hello Window --&gt;
+&lt;div nd-window nd-window-endpoint=&quot;hello&quot;&gt;
+  &lt;!-- Window Header --&gt;
+  &lt;div nd-window-header&gt;
+    &lt;span&gt;Hello&lt;/span&gt;
+    &lt;button nd-window-button=&quot;maximize&quot; title=&quot;Maximize&quot;&gt;[ ]&lt;/button&gt;
+    &lt;button nd-window-button=&quot;close&quot; title=&quot;Close&quot;&gt;X&lt;/button&gt;
   &lt;/div&gt;
-&lt;/template&gt;</code></pre>
+
+  &lt;!-- Window Content --&gt;
+  &lt;div nd-window-content&gt;
+    &lt;p&gt;I am the Hello page content.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </doc-codeblock></div>
-<p>Then open it using the route name:</p>
-<div id="static-template-usage-code-2" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">wm.open(&quot;my-app&quot;);</code></pre>
-</doc-codeblock></div>
+<hr>
+<doc-anchor-target id="3-thats-it-">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3-thats-it-">#</doc-anchor-trigger>
+        <span>3. That’s It <span class="docs-emoji">&#x1F389;</span></span>
+    </h2>
+</doc-anchor-target>
+<p>You now have:</p>
+<ul>
+<li>A working desktop</li>
+<li>A clickable desktop icon</li>
+<li>A taskbar integration</li>
+<li>A fully functional window</li>
+</ul>
+<p>You’ve just created your first NidamJS desktop application.</p>
+<hr>
 
                 
                 <!-- Required only on API pages -->

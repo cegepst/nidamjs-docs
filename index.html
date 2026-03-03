@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825884488028">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825884506522">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.1.0">
@@ -22,17 +22,17 @@
     <meta property="og:url" content="https://docs.example.com/">
     <meta property="og:title" content="Welcome to NidamJS">
     <meta property="og:description" content="NidamJS is a framework-agnostic JavaScript library designed to inject desktop-like logic into web frontends. It enables windows, taskbar, icons, and">
-    <meta property="og:site_name" content="Project Name">
+    <meta property="og:site_name" content="NidamJS">
     <meta property="og:locale" content="en_US">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="resources/css/retype.css?v=4.1.0.825884488028" rel="stylesheet">
+    <link href="resources/css/retype.css?v=4.1.0.825884506522" rel="stylesheet">
 
-    <script data-cfasync="false" src="resources/js/config.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="resources/js/config.js?v=4.1.0.825884506522" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=4.1.0.825884488028" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="resources/js/prism.js?v=4.1.0.825884488028" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=4.1.0.825884506522" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="resources/js/prism.js?v=4.1.0.825884506522" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -48,7 +48,7 @@
             <div class="flex items-center justify-between h-full py-2 md:w-75">
                 <div class="flex items-center px-2 md:px-6">
                     <a id="retype-branding-logo" href="" class="flex items-center leading-snug text-2xl">
-                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Project Name</span>
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">NidamJS</span>
                     </a><span id="retype-branding-label" class="inline-flex mt-1 px-2 py-1 ml-4 text-xs font-medium leading-none items-center rounded-md bg-branding-label-bg text-branding-label-text ring-1 ring-branding-label-border ring-inset md:inline-block">Docs</span>
                 </div>
     
@@ -137,8 +137,8 @@ enables windows, taskbar, icons, and related UI/UX features without requiring ba
     </h2>
 </doc-anchor-target>
 <ul>
-<li><strong>Window Management</strong>: Full window lifecycle (open, close, minimize, maximize).</li>
-<li><strong>Desktop Experience</strong>: Taskbar, desktop icons, and context menus.</li>
+<li><strong>Window Management</strong>: Full window lifecycle (open, close, minimize, maximize, snapping).</li>
+<li><strong>Desktop Experience</strong>: Taskbar, desktop icons, and windows.</li>
 <li><strong>Framework Agnostic</strong>: Works with React, Vue, Svelte, Angular, or Vanilla JS.</li>
 <li><strong>Frontend Centric</strong>: No backend requirements.</li>
 </ul>
@@ -150,18 +150,7 @@ enables windows, taskbar, icons, and related UI/UX features without requiring ba
 </doc-anchor-target>
 <p>Get up and running in seconds.</p>
 <div id="quick-start-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">import { createNidamApp } from &quot;nidamjs&quot;;
-
-const app = createNidamApp({
-  modalContainer: &quot;#desktop-target&quot;,
-  windowManager: {
-    config: {
-      maxWindows: 10,
-    },
-  },
-});
-
-app.initialize();</code></pre>
+<pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;script src=&quot;https://unpkg.com/nidamjs/dist/nidam.js&quot;&gt;&lt;/script&gt;</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="explore-the-docs">
     <h2>
@@ -183,7 +172,7 @@ app.initialize();</code></pre>
 <td style="text-align: left;">Installation and setup guide.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="guide/concepts/"><strong>Core Concepts</strong></a></td>
+<td style="text-align: left;"><a href="guide/concepts.md"><strong>Core Concepts</strong></a></td>
 <td style="text-align: left;">Learn about the architecture and modules.</td>
 </tr>
 <tr>
