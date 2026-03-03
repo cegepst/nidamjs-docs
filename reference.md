@@ -1,114 +1,123 @@
 ---
-icon: code
-order: -10
+order: 3
+icon: book
 ---
 
 # API Reference
 
-This section provides technical details for the NidamJS public API classes, methods, and properties.
-
-## Core
-
-### `createNidamApp(config)`
-
-The primary factory function used to initialize the NidamJS environment.
-
-**Parameters**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `config` | `Object` | Configuration options for the app. |
-
-**Config Object**
-
-| Property | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `modalContainer` | `string` | `"#target"` | CSS selector for the element that will contain windows. |
-| `registry` | `Array` | `[]` | List of feature definitions for automatic initialization. |
-| `windowManager` | `Object` | `{}` | Configuration and adapters for the Window Manager. |
-| `refreshMap` | `Object` | `null` | Map for automatic window refreshing. |
-
-**Returns**
-
-- `NidamApp`: An instance of the application.
+NidamJS exposes a carefully curated set of public functions and classes designed for interacting with its windowing system, desktop icons, and event delegation.
 
 ---
 
-## NidamApp Instance
+## App Initialization
 
-The `NidamApp` instance manages the lifecycle of different modules.
+### `initNidamApp(config)`
 
-### Methods
+Initializes the `NidamApp` with an optional configuration object and returns the fully initialized app instance.
 
-#### `initialize()`
-Starts event delegation and initializes all managers. Must be called once.
+> **Note:** NidamJS will automatically call `initNidamApp()` on script load unless you add a script tag with the `[data-nd-init]` attribute to your document to signify manual initialization.
 
-#### `getModule(name)`
-Retrieves a specific manager module.
-- `name`: `'window'`, `'taskbar'`, `'refresher'`, or `'delegator'`.
+**Parameters:**
 
-#### `getModules()`
-Returns the internal `Map` containing all active modules.
+- `config` _(Object | string)_ (Optional): The NidamJS configuration object or JSON string.
 
----
+**Returns:**
 
-## WindowManager
+- [`NidamApp`](#nidamapp): The initialized application instance.
 
-Accessible via `app.getModule('window')`. Manages window lifecycle and interaction.
+**Example:**
 
-### Methods
+```javascript
+import { initNidamApp } from "nidamjs";
 
-#### `open(endpoint, force = false)`
-Opens a window for a given endpoint.
-- `endpoint` (string): The URL or template route to load.
-- `force` (boolean): If true, bypasses cooldowns and creates a new instance even if one exists.
-- **Returns**: `Promise<HTMLElement>`
-
-#### `close(winElement)`
-Closes a specific window element with animation.
-- `winElement` (HTMLElement): The `.window` element to close.
-
-#### `focus(winElement)`
-Brings a window to the foreground.
-
-#### `toggleMaximize(winElement)`
-Toggles between maximized and restored states.
+const app = initNidamApp({
+  windowManager: { layoutStabilizationMs: 450 },
+});
+```
 
 ---
 
-## Window DOM Contract
+## `NidamApp`
 
-NidamJS windows are plain `HTMLElement`s that must follow a specific internal structure.
+The main instance returned by initialization. It coordinates all modules in the NidamJS ecosystem.
 
-### Attributes
+### `getModule(name)`
 
-| Attribute | Description |
-| :--- | :--- |
-| `class="window"` | Identifies the root window element. |
-| `[data-bar]` | The draggable handle (usually the title bar). |
-| `[data-close]` | Trigger for closing the window. |
-| `[data-maximize]` | Trigger for maximizing the window. |
-| `data-endpoint` | (Internal) The unique ID assigned to the window. |
+Retrieves a specific initialized module by its registered name. This is the primary way to programmatically interact with NidamJS at runtime.
+
+**Parameters:**
+
+- `name` _(string)_: The name of the module. Valid module names are `"window"`, `"delegator"`, `"taskbar"`, `"refresher"`, and `"icon"`.
+
+**Returns:**
+
+- The requested module instance, or `undefined` if not found.
+
+**Example:**
+
+```javascript
+const app = initNidamApp();
+
+// Access the window manager
+const windowManager = app.getModule("window");
+windowManager.open("my-settings-modal");
+```
+
+### `getModules()`
+
+Retrieves all initialized modules.
+
+**Returns:**
+
+- `Map<string, object>`: A JavaScript `Map` containing all available module instances.
 
 ---
 
-## TaskbarManager
+## Modules
 
-Accessible via `app.getModule('taskbar')`.
+After initializing NidamJS, you can access the core modules to manually trigger actions like opening windows, refreshing content, or listening to global events.
 
-The `TaskbarManager` primarily operates through event listeners and DOM attributes (`nd-taskbar`, `tb-icon`). It does not currently expose a public method API for dynamic item management.
+### 1. Window Manager (`"window"`)
 
----
+Controls the lifecycle, focus, and state of windows/modals. Accessible via `app.getModule("window")`.
 
-## DesktopIconManager
+- **`open(endpoint, force = false, focusSelector = null, activate = true)`**
+  Opens a new window based on its endpoint or focuses an existing one. Returns a `Promise` tracking the DOM injection and initialization.
+- **`close(winElement)`**
+  Closes the specified window element. Triggered automatically by GUI buttons.
+- **`closeTopmost()`**
+  Closes the active (topmost/focused) window. Often mapped internally to the "Escape" key behavior.
+- **`getWindows()`**
+  Returns an array of `[endpoint, winElement]` pairs representing all currently open windows.
+- **`focus(winElement)`**
+  Brings the specified window to the front by updating its `z-index` position.
+- **`toggleMaximize(winElement)`**
+  Toggles the given window between its maximized state and its previous restored bounds.
+- **`drag(e, winElement)`**
+  Manually triggers a window drag operation, consuming a `MouseEvent`.
 
-If initialized manually or via registry:
+### 2. Event Delegator (`"delegator"`)
 
-The `DesktopIconManager` handles drag-and-drop persistence for desktop icons. It targets elements with the `.desktop-icon` class.
+Handles centralized root-level HTML event delegation (like `click`, `mousedown`, `keydown`).
 
-### Configuration
+- **`on(eventType, selector, handler, options = { group })`**
+  Registers a delegated event handler on the app's root. If `selector` is `null`, it works as a global handler. Returns a handler reference object.
+- **`off(eventType, ref)`**
+  Removes a previously registered event handler using the reference object returned by `.on()`.
 
-| Option | Type | Description |
-| :--- | :--- | :--- |
-| `storageKey` | `string` | Key used in `localStorage`. |
-| `storageNamespace` | `string` | Optional prefix for the storage key. |
+### 3. Window Refresher (`"refresher"`)
+
+Reacts to generic or server-sent events to intelligently refresh window content or close windows.
+
+- **`setRefreshMap(refreshMap)`**
+  Dynamically updates the app's rule map that determines which window paths refresh upon receiving specific events.
+- **`handleEvent(eventName, payload)`**
+  Processes an incoming event (e.g., `user:deleted`) and triggers the appropriate window refreshes/closures. Expects the payload to provide an `id` to determine destruction chains.
+
+### 4. Taskbar Manager (`"taskbar"`)
+
+Synchronizes the HTML taskbar layer functionality and icon rendering with the currently open modal instances. Interaction is primarily automatic across `$window:opened` and `$window:closed` events.
+
+### 5. Icon Manager (`"icon"`)
+
+Controls desktop icon grid positioning constraints, snapping, and layout memory functionality on the DOM `[nd-icons]` container.
