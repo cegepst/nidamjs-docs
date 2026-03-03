@@ -40,7 +40,7 @@ Simply add the main stylesheet and script to your HTML file. That's it!
 </html>
 ```
 
-Under the hood, NidamJS determines if manual control is requested. If it finds no hints of manual initialization, it automatically calls [initNidamApp()](file://wsl.localhost/Ubuntu/home/zachari/nidamjs/src/bootstrap/AppInitalizer.js#5-20).
+Under the hood, NidamJS determines if manual control is requested. If it finds no hints of manual initialization, it automatically calls [initNidamApp()].
 
 ---
 
@@ -51,7 +51,7 @@ If you need to define custom behaviors (like window thresholds, grid sizing, or 
 To do this, NidamJS requires two steps:
 
 1. Signal to the library **not** to auto-initialize by adding the `data-nd-init` attribute to your script tag.
-2. Manually import and call [initNidamApp(config)](file://wsl.localhost/Ubuntu/home/zachari/nidamjs/src/bootstrap/AppInitalizer.js#5-20) inside your script.
+2. Manually import and call [initNidamApp(config)] inside your script.
 
 ### Step 1: Update your HTML
 
@@ -76,7 +76,7 @@ Add the `data-nd-init` attribute to the `script` tag loading your own initializa
 
 ### Step 2: Initialize in JavaScript
 
-Inside your `app.js` file, you can now import [initNidamApp](file://wsl.localhost/Ubuntu/home/zachari/nidamjs/src/bootstrap/AppInitalizer.js#5-20) (the default export), fetch or define your configuration, and start the application.
+Inside your `app.js` file, you can now import [initNidamApp] (the default export), fetch or define your configuration, and start the application.
 
 ```javascript
 // app.js
@@ -106,4 +106,4 @@ const appInstance = initNidamApp(myConfig);
 ```
 
 > [!TIP]
-> **Config Formats**: [initNidamApp](file://wsl.localhost/Ubuntu/home/zachari/nidamjs/src/bootstrap/AppInitalizer.js#5-20) accepts either a native Javascript object or a JSON string. If a JSON string is passed, NidamJS will parse it internally, falling back to default settings automatically if it encounters invalid JSON!
+> **Config Formats**: [initNidamApp] accepts either a native Javascript object or a JSON string. If a JSON string is passed, NidamJS will parse it internally, falling back to default settings automatically if it encounters invalid JSON!
