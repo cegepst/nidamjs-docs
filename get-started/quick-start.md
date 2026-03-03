@@ -2,7 +2,7 @@
 icon: rocket
 ---
 
-# NidamJS Quickstart
+# Quickstart
 
 Getting started with NidamJS is quick and flexible. Depending on your needs, you can either drop in the script for automatic initialization with default settings or take full manual control to pass a custom configuration object.
 
@@ -30,10 +30,9 @@ Simply add the main stylesheet and script to your HTML file. That's it!
     <!-- Include the NidamJS ES Module -->
     <script type="module" src="/node_modules/nidamjs/dist/nidam.es.js"></script>
   </head>
-  <body>
-    <!-- Your NidamJS DOM elements go here -->
-    <div nd-toast-stack data-position="bottom-right"></div>
+  <body>    
     <div nd-desktop>
+        
       <!-- Desktop Icons Grid -->
       <section nd-icons="8:4">
         <div nd-icon="1:1" nd-id="hello" data-modal="hello">
@@ -48,6 +47,12 @@ Simply add the main stylesheet and script to your HTML file. That's it!
           <img src="/icons/hello.png" alt="Hello" />
         </div>
       </div>
+      
+      <!-- Window Render Target -->
+      <div id="target"></div>
+      
+      <!-- Toasts notification -->
+      <div nd-toast-stack data-position="bottom-right"></div>
     </div>
   </body>
 </html>
@@ -82,9 +87,8 @@ Add the `data-nd-init` attribute to the `script` tag loading your own initializa
     <script type="module" src="app.js" data-nd-init></script>
   </head>
   <body>
-    <!-- Your NidamJS DOM elements go here -->
-    <div nd-toast-stack data-position="bottom-right"></div>
     <div nd-desktop>
+        
       <!-- Desktop Icons Grid -->
       <section nd-icons="8:4">
         <div nd-icon="1:1" nd-id="hello" data-modal="hello">
@@ -99,6 +103,13 @@ Add the `data-nd-init` attribute to the `script` tag loading your own initializa
           <img src="/icons/hello.png" alt="Hello" />
         </div>
       </div>
+      
+      <!-- Window Render Target -->
+      <div id="target"></div>
+      
+      <!-- Toasts notification -->
+      <div nd-toast-stack data-position="bottom-right"></div>
+      
     </div>
   </body>
 </html>
