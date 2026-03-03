@@ -7,6 +7,7 @@ icon: rocket
 Get your first **NidamJS** desktop environment up and running in just a few minutes.
 
 This guide walks you through:
+
 1. Setting up the desktop container
 2. Creating a window
 3. Launching your first application
@@ -18,6 +19,7 @@ This guide walks you through:
 Create a basic HTML file and define the structure of your desktop.
 
 You’ll need:
+
 - A **desktop container**
 - A **window target**
 - Optional **desktop icons**
@@ -38,14 +40,13 @@ You’ll need:
   <body>
     <!-- Desktop Root -->
     <div nd-desktop>
-      
       <!-- Window Render Target -->
       <div id="target"></div>
 
       <!-- Desktop Icons Grid -->
       <section nd-icons="8:4">
         <div nd-icon="1:1" nd-id="hello" data-modal="hello">
-          <img src="/icons/hello.png" alt="Hello">
+          <img src="/icons/hello.png" alt="Hello" />
           <span>Hello</span>
         </div>
       </section>
@@ -56,14 +57,13 @@ You’ll need:
           <img src="/icons/hello.png" alt="Hello" />
         </div>
       </div>
-
     </div>
 
     <!-- NidamJS module -->
     <script type="module" src="node_modules/nidamjs/dist/nidam.es.js"></script>
   </body>
 </html>
-````
+```
 
 ---
 
@@ -74,7 +74,6 @@ Now define a window component that will be opened when clicking the icon.
 ```html
 <!-- Hello Window -->
 <div nd-window nd-window-endpoint="hello">
-
   <!-- Window Header -->
   <div nd-window-header>
     <span>Hello</span>
@@ -95,10 +94,10 @@ Now define a window component that will be opened when clicking the icon.
 
 You now have:
 
-* A working desktop
-* A clickable desktop icon
-* A taskbar integration
-* A fully functional window
+- A working desktop
+- A clickable desktop icon
+- A taskbar integration
+- A fully functional window
 
 You’ve just created your first NidamJS desktop application.
 

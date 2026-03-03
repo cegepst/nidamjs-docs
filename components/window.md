@@ -29,19 +29,15 @@ A basic window structure looks like this:
       <code>GET /examples/shared/page-one.html</code>.
     </p>
 
-    <button data-modal="examples/shared/page-two.html">
-      Open Page Two
-    </button>
+    <button data-modal="examples/shared/page-two.html">Open Page Two</button>
   </div>
 </div>
-````
+```
 
 To open it from anywhere:
 
 ```html
-<button data-modal="examples/shared/page-one.html">
-  Open Page One
-</button>
+<button data-modal="examples/shared/page-one.html">Open Page One</button>
 ```
 
 The `WindowManager` automatically detects the `data-modal` attribute and loads the window content.
@@ -72,12 +68,12 @@ If no size is specified, the default is **768x480**.
 
 **Required for dynamic loading & lifecycle management.**
 
-* Identifies the window content source.
-* Used internally as the unique key in the `WindowManager`.
-* Matches the `data-modal` trigger.
+- Identifies the window content source.
+- Used internally as the unique key in the `WindowManager`.
+- Matches the `data-modal` trigger.
 
 ```html
-<div nd-window nd-window-endpoint="settings/profile.html">
+<div nd-window nd-window-endpoint="settings/profile.html"></div>
 ```
 
 ---
@@ -86,9 +82,9 @@ If no size is specified, the default is **768x480**.
 
 Defines the draggable top bar.
 
-* Dragging starts only from this element.
-* Automatically handles focus on interaction.
-* Buttons must live inside the header.
+- Dragging starts only from this element.
+- Automatically handles focus on interaction.
+- Buttons must live inside the header.
 
 ---
 
@@ -104,8 +100,7 @@ Control window actions.
 Example:
 
 ```html
-<button nd-window-button="maximize">[ ]</button>
-<button nd-window-button="close">X</button>
+<button nd-window-button="maximize">[ ]</button> <button nd-window-button="close">X</button>
 ```
 
 ---
@@ -128,18 +123,18 @@ Padding and styling are applied automatically.
 
 ### Focus Management
 
-* Clicking a window brings it to the front.
-* Z-index is managed internally.
-* The focused window receives the `.focused` class.
+- Clicking a window brings it to the front.
+- Z-index is managed internally.
+- The focused window receives the `.focused` class.
 
 ---
 
 ### Dragging
 
-* Drag starts from `nd-window-header`
-* Automatically restores from maximized when dragging
-* Saves position ratios for responsive resizing
-* Snap detection is built-in
+- Drag starts from `nd-window-header`
+- Automatically restores from maximized when dragging
+- Saves position ratios for responsive resizing
+- Snap detection is built-in
 
 ---
 
@@ -147,10 +142,10 @@ Padding and styling are applied automatically.
 
 When dragging near screen edges:
 
-* Left → Tile left
-* Right → Tile right
-* Top → Maximize
-* Corners → Quadrant tiling (if enabled in config)
+- Left → Tile left
+- Right → Tile right
+- Top → Maximize
+- Corners → Quadrant tiling (if enabled in config)
 
 A `.snap-indicator` overlay appears to preview placement.
 
@@ -161,7 +156,7 @@ A `.snap-indicator` overlay appears to preview placement.
 Handled via:
 
 ```js
-manager.toggleMaximize(winElement)
+manager.toggleMaximize(winElement);
 ```
 
 CSS class applied:
@@ -172,16 +167,16 @@ CSS class applied:
 
 This sets:
 
-* `top: 0`
-* `left: 0`
-* `width: 100%`
-* `height: 100%`
+- `top: 0`
+- `left: 0`
+- `width: 100%`
+- `height: 100%`
 
 ---
 
 ### Keyboard Support
 
-* `Escape` closes the topmost window.
+- `Escape` closes the topmost window.
 
 ---
 
@@ -211,8 +206,8 @@ The root container dispatches CustomEvents:
 Example:
 
 ```js
-root.addEventListener("window:opened", (e) => {
-  console.log("Opened:", e.detail.endpoint);
+root.addEventListener('window:opened', (e) => {
+  console.log('Opened:', e.detail.endpoint);
 });
 ```
 
@@ -225,13 +220,13 @@ root.addEventListener("window:opened", (e) => {
 | Attribute            | Level    | Required | Description                   |
 | -------------------- | -------- | -------- | ----------------------------- |
 | `nd-window`          | Root     | Yes      | Marks the element as a window |
-| `nd-window-endpoint` | Root     | Yes*     | Unique endpoint key           |
+| `nd-window-endpoint` | Root     | Yes\*    | Unique endpoint key           |
 | `nd-window-header`   | Child    | Yes      | Draggable header              |
 | `nd-window-button`   | Child    | No       | Window control buttons        |
 | `nd-window-content`  | Child    | Yes      | Content container             |
 | `data-modal`         | Anywhere | No       | Opens a window                |
 
-* Required for dynamic windows.
+- Required for dynamic windows.
 
 ---
 
@@ -311,7 +306,7 @@ All tokens are defined under `:root`.
 ### Glass Window Variant
 
 ```html
-<div nd-window nd-variant="glass">
+<div nd-window nd-variant="glass"></div>
 ```
 
 Uses backdrop blur + transparency.
@@ -322,20 +317,20 @@ Uses backdrop blur + transparency.
 
 The `WindowManager` orchestrates:
 
-* Lifecycle (`WindowLifecycle`)
-* Dragging (`WindowDrag`)
-* Tiling (`WindowTiling`)
-* State persistence (`WindowState`)
-* Dynamic loading (`WindowLoader`)
+- Lifecycle (`WindowLifecycle`)
+- Dragging (`WindowDrag`)
+- Tiling (`WindowTiling`)
+- State persistence (`WindowState`)
+- Dynamic loading (`WindowLoader`)
 
 You typically **do not interact with these directly** — use the public API:
 
 ```js
-manager.open(endpoint)
-manager.close(win)
-manager.toggleMaximize(win)
-manager.focus(win)
-manager.getWindows()
+manager.open(endpoint);
+manager.close(win);
+manager.toggleMaximize(win);
+manager.focus(win);
+manager.getWindows();
 ```
 
 ---
