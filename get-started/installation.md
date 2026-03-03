@@ -9,7 +9,7 @@ include it directly via CDN.
 
 ## Package Manager
 
-Install NidamJS using `npm`, `yarn` or `bun`.
+Install NidamJS using `npm` or `bun`.
 
 +++ npm
 
@@ -17,16 +17,10 @@ Install NidamJS using `npm`, `yarn` or `bun`.
 npm install nidamjs
 ```
 
-+++Bun
++++ Bun
 
 ```bash
 bun add nidamjs
-```
-
-+++ Yarn
-
-```bash
-yarn add nidamjs
 ```
 
 +++

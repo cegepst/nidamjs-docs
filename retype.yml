@@ -3,12 +3,8 @@ output: .retype
 
 url: docs.example.com # Use your website address here
 
-start:
-  # Uncomment the next line to try Retype Pro features
-  # pro: true
-
 branding:
-  title: Project Name
+  title: NidamJS
   label: Docs
 
 footer:
