@@ -82,7 +82,24 @@ Add the `data-nd-init` attribute to the `script` tag loading your own initializa
     <script type="module" src="app.js" data-nd-init></script>
   </head>
   <body>
-    <!-- ... -->
+    <!-- Your NidamJS DOM elements go here -->
+    <div nd-toast-stack data-position="bottom-right"></div>
+    <div nd-desktop>
+      <!-- Desktop Icons Grid -->
+      <section nd-icons="8:4">
+        <div nd-icon="1:1" nd-id="hello" data-modal="hello">
+          <img src="/icons/hello.png" alt="Hello" />
+          <span>Hello</span>
+        </div>
+      </section>
+
+      <!-- Taskbar -->
+      <div nd-taskbar>
+        <div nd-taskbar-icon data-modal="hello">
+          <img src="/icons/hello.png" alt="Hello" />
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 ```
