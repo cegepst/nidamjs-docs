@@ -11,8 +11,8 @@ enables windows, taskbar, icons, and related UI/UX features without requiring ba
 
 ## Why NidamJS?
 
-- **Window Management**: Full window lifecycle (open, close, minimize, maximize).
-- **Desktop Experience**: Taskbar, desktop icons, and context menus.
+- **Window Management**: Full window lifecycle (open, close, minimize, maximize, snapping).
+- **Desktop Experience**: Taskbar, desktop icons, and windows.
 - **Framework Agnostic**: Works with React, Vue, Svelte, Angular, or Vanilla JS.
 - **Frontend Centric**: No backend requirements.
 

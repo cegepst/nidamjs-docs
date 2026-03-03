@@ -4,13 +4,24 @@ icon: rocket
 
 # Quick Start
 
-Get your first NidamJS desktop environment running in minutes.
+Get your first **NidamJS** desktop environment up and running in just a few minutes.
 
-## Basic Usage
+This guide walks you through:
+1. Setting up the desktop container
+2. Creating a window
+3. Launching your first application
 
-### 1. Add the container
+---
 
-Create an HTML file and add a container element where the windows will be rendered. You also need to define a taskbar if you want application management.
+## 1. Set Up the Desktop Container
+
+Create a basic HTML file and define the structure of your desktop.
+
+You’ll need:
+- A **desktop container**
+- A **window target**
+- Optional **desktop icons**
+- A **taskbar** (recommended for managing windows)
 
 ```html
 <!DOCTYPE html>
@@ -19,73 +30,76 @@ Create an HTML file and add a container element where the windows will be render
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NidamJS Desktop</title>
-    <!-- Default styles from the package -->
+
+    <!-- NidamJS default styles -->
     <link rel="stylesheet" href="node_modules/nidamjs/dist/nidam.css" />
   </head>
+
   <body>
+    <!-- Desktop Root -->
     <div nd-desktop>
-      <!-- Target for windows -->
+      
+      <!-- Window Render Target -->
       <div id="target"></div>
 
+      <!-- Desktop Icons Grid -->
+      <section nd-icons="8:4">
+        <div nd-icon="1:1" nd-id="hello" data-modal="hello">
+          <img src="/icons/hello.png" alt="Hello">
+          <span>Hello</span>
+        </div>
+      </section>
+
       <!-- Taskbar -->
-      <div nd-taskbar tb-position="bottom">
-        <button tb-icon data-modal="app-one">App 1</button>
+      <div nd-taskbar>
+        <div nd-taskbar-icon data-modal="hello">
+          <img src="/icons/hello.png" alt="Hello" />
+        </div>
       </div>
+
     </div>
 
-    <script type="module" src="/src/main.js"></script>
+    <!-- NidamJS module -->
+    <script type="module" src="node_modules/nidamjs/dist/nidam.es.js"></script>
   </body>
 </html>
-```
+````
 
-### 2. Initialize the App
+---
 
-Import `createNidamApp` from the library and initialize it pointing to your target container.
+## 2. Create Your First Window
 
-```javascript
-import { createNidamApp } from "nidamjs";
-
-const app = createNidamApp({
-  modalContainer: "#target",
-  windowManager: {
-    config: {
-      maxWindows: 5,
-    }
-  }
-});
-
-app.initialize();
-```
-
-### 3. Open a Window
-
-NidamJS works with **endpoints**. An endpoint can be a URL that returns window HTML, or a reference to a local template.
-
-```javascript
-// Get the window manager module
-const wm = app.getModule('window');
-
-// Open a window by its endpoint/URL
-wm.open('pages/welcome.html');
-```
-
-## Static Template Usage
-
-For static sites, you can define windows inside `<template>` tags with a `data-route`.
+Now define a window component that will be opened when clicking the icon.
 
 ```html
-<template data-route="my-app">
-  <div class="window">
-    <div class="window-bar" data-bar>
-      <strong>My App</strong>
-      <button data-close>x</button>
-    </div>
-    <div class="window-content">Hello World</div>
+<!-- Hello Window -->
+<div nd-window nd-window-endpoint="hello">
+
+  <!-- Window Header -->
+  <div nd-window-header>
+    <span>Hello</span>
+    <button nd-window-button="maximize" title="Maximize">[ ]</button>
+    <button nd-window-button="close" title="Close">X</button>
   </div>
-</template>
+
+  <!-- Window Content -->
+  <div nd-window-content>
+    <p>I am the Hello page content.</p>
+  </div>
+</div>
 ```
 
-Then open it using the route name:
-```javascript
-wm.open('my-app');
-```
+---
+
+## 3. That’s It 🎉
+
+You now have:
+
+* A working desktop
+* A clickable desktop icon
+* A taskbar integration
+* A fully functional window
+
+You’ve just created your first NidamJS desktop application.
+
+---
