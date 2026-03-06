@@ -137,36 +137,6 @@ Used for advanced content injection patterns.
 
 ---
 
-### `refreshMap`
-
-**Type:** `Record<string, string[]> | null`
-**Default:** `null`
-
-Defines window refresh relationships.
-
-Example:
-
-```js
-refreshMap: {
-  "users.html": ["dashboard.html"],
-  "settings.html": ["profile.html"]
-}
-```
-
-When `users.html` changes → `dashboard.html` refreshes.
-
----
-
-### `refreshTimeout`
-
-**Type:** `number`
-**Default:** `200`
-
-Delay before triggering refresh.
-
-Increase if heavy content rendering causes flicker.
-
----
 
 ### `notify`
 

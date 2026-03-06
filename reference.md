@@ -104,19 +104,10 @@ Handles centralized root-level HTML event delegation (like `click`, `mousedown`,
 - **`off(eventType, ref)`**
   Removes a previously registered event handler using the reference object returned by `.on()`.
 
-### 3. Window Refresher (`"refresher"`)
-
-Reacts to generic or server-sent events to intelligently refresh window content or close windows.
-
-- **`setRefreshMap(refreshMap)`**
-  Dynamically updates the app's rule map that determines which window paths refresh upon receiving specific events.
-- **`handleEvent(eventName, payload)`**
-  Processes an incoming event (e.g., `user:deleted`) and triggers the appropriate window refreshes/closures. Expects the payload to provide an `id` to determine destruction chains.
-
-### 4. Taskbar Manager (`"taskbar"`)
+### 3. Taskbar Manager (`"taskbar"`)
 
 Synchronizes the HTML taskbar layer functionality and icon rendering with the currently open modal instances. Interaction is primarily automatic across `$window:opened` and `$window:closed` events.
 
-### 5. Icon Manager (`"icon"`)
+### 4. Icon Manager (`"icon"`)
 
 Controls desktop icon grid positioning constraints, snapping, and layout memory functionality on the DOM `[nd-icons]` container.
