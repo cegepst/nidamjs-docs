@@ -14,13 +14,13 @@ Install NidamJS using `npm` or `bun`.
 +++ npm
 
 ```bash
-npm install nidamjs
+npm install @moonitoring/nidamjs
 ```
 
 +++ Bun
 
 ```bash
-bun add nidamjs
+bun add @moonitoring/nidamjs
 ```
 
 +++
