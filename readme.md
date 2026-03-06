@@ -16,24 +16,11 @@ enables windows, taskbar, icons, and related UI/UX features without requiring ba
 - **Framework Agnostic**: Works with React, Vue, Svelte, Angular, or Vanilla JS.
 - **Frontend Centric**: No backend requirements.
 
-## Quick Start
-
-Get up and running in seconds.
-
-```html
-<!-- Include the NidamJS CSS -->
-<link rel="stylesheet" href="node_modules/@moonitoring/nidamjs/dist/nidam.css" />
-
-<!-- Include the NidamJS ES Module -->
-<script type="module" src="node_modules/@moonitoring/nidamjs/dist/nidam.es.js" data-nd-init></script>
-```
-
 ## Explore the Docs
 
 | Section                                            | Description                                   |
 | :------------------------------------------------- | :-------------------------------------------- |
 | [**Getting Started**](get-started/installation.md) | Installation and setup guide.                 |
-| [**Core Concepts**](guide/concepts.md)             | Learn about the architecture and modules.     |
 | [**Components**](components/window.md)             | Detailed docs on Windows, Taskbar, and Icons. |
 | [**API Reference**](reference.md)                  | Technical API documentation.                  |
 
