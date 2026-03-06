@@ -22,10 +22,10 @@ Get up and running in seconds.
 
 ```html
 <!-- Include the NidamJS CSS -->
-<link href="https://unpkg.com/nidamjs/dist/nidam.css" rel="stylesheet" />
+<link rel="stylesheet" href="node_modules/@moonitoring/nidamjs/dist/nidam.css" />
 
 <!-- Include the NidamJS ES Module -->
-<script type="module" src="https://unpkg.com/nidamjs/dist/nidam.es.js"></script>
+<script type="module" src="node_modules/@moonitoring/nidamjs/dist/nidam.es.js" data-nd-init></script>
 ```
 
 ## Explore the Docs
