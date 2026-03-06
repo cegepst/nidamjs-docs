@@ -24,12 +24,7 @@ A basic window structure looks like this:
   </div>
 
   <div nd-window-content>
-    <p>
-      This window is served by
-      <code>GET /examples/shared/page-one.html</code>.
-    </p>
-
-    <button data-modal="examples/shared/page-two.html">Open Page Two</button>
+    <!-- Your window content here -->
   </div>
 </div>
 ```
