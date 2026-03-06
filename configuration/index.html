@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825891801626">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.826142246881">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.1.0">
@@ -27,12 +27,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../resources/css/retype.css?v=4.1.0.825891801626" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=4.1.0.826142246881" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=4.1.0.825891801626" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=4.1.0.826142246881" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.1.0.825891801626" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=4.1.0.825891801626" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.1.0.826142246881" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=4.1.0.826142246881" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -138,13 +138,7 @@
 <li>Drag sensitivity</li>
 <li>Layout constraints</li>
 <li>Logging system</li>
-<li>Refresh rules</li>
 </ul>
-<p>The configuration system is designed to be:</p>
-<p>✔ Explicit
-✔ Type-safe (JSDoc friendly)
-✔ Extendable
-✔ Optional (sane defaults)</p>
 <hr>
 <doc-anchor-target id="enabling-custom-config">
     <h2>
@@ -156,59 +150,18 @@
 <div id="enabling-custom-config-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-markup"><code v-pre class="language-markup">&lt;script type=&quot;module&quot; src=&quot;example.js&quot; data-nd-init&gt;&lt;/script&gt;</code></pre>
 </doc-codeblock></div>
-<blockquote>
-<p>⚠ Custom config only works if NidamJS is initialized manually.</p>
-</blockquote>
-<hr>
-<doc-anchor-target id="manual-initialization-example">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#manual-initialization-example">#</doc-anchor-trigger>
-        <span>Manual Initialization Example</span>
-    </h2>
-</doc-anchor-target>
-<div id="manual-initialization-example-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">import initNidamApp from &quot;../../dist/nidam.es.js&quot;;
-import config from &quot;../shared/example.config.json&quot; with { type: &quot;json&quot; };
+<div id="enabling-custom-config-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">//example.js
 
-initNidamApp(config);</code></pre>
-</doc-codeblock></div>
-<hr>
-<doc-anchor-target id="configuration-structure">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#configuration-structure">#</doc-anchor-trigger>
-        <span>Configuration Structure</span>
-    </h2>
-</doc-anchor-target>
-<div id="configuration-structure-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-typescript"><code v-pre class="language-typescript">type NidamConfig = {
-  root?: Document | HTMLElement;
-  modalContainer?: string;
-  pendingModalDatasetKey?: string;
-  registry?: any[];
-  refreshMap?: Record&lt;string, string[]&gt; | null;
-  refreshTimeout?: number;
-  notify?: (level: string, message: string) =&gt; void;
-  windowManager?: WindowManagerConfig;
-};</code></pre>
-</doc-codeblock></div>
-<hr>
-<doc-anchor-target id="default-configuration">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#default-configuration">#</doc-anchor-trigger>
-        <span>Default Configuration</span>
-    </h2>
-</doc-anchor-target>
-<div id="default-configuration-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">export default {
-  root: document,
-  modalContainer: &quot;#target&quot;,
-  pendingModalDatasetKey: &quot;pendingModal&quot;,
-  registry: [],
-  refreshMap: null,
-  refreshTimeout: 200,
-  notify: defaultNotify,
-  windowManager: { ... }
-}</code></pre>
+import config from './nidam.config.json' with { type: 'json' };
+import initNidamApp from &quot;@moonitoring/nidamjs&quot;;
+
+initNidamApp(config);
+
+/*
+You can pass a simple js object as config instead of using a config file
+initNidamApp({});
+*/</code></pre>
 </doc-codeblock></div>
 <hr>
 <doc-anchor-target id="global-config-options">
@@ -271,77 +224,6 @@ initNidamApp(config);</code></pre>
 <strong>Default:</strong> <code translate="no" v-pre>[]</code></p>
 <p>Content modules registry.</p>
 <p>Used for advanced content injection patterns.</p>
-<hr>
-<doc-anchor-target id="refreshmap">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#refreshmap">#</doc-anchor-trigger>
-        <span><code translate="no" v-pre>refreshMap</code></span>
-    </h3>
-</doc-anchor-target>
-<p><strong>Type:</strong> <code translate="no" v-pre>Record&lt;string, string[]&gt; | null</code>
-<strong>Default:</strong> <code translate="no" v-pre>null</code></p>
-<p>Defines window refresh relationships.</p>
-<p>Example:</p>
-<div id="refreshmap-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">refreshMap: {
-  &quot;users.html&quot;: [&quot;dashboard.html&quot;],
-  &quot;settings.html&quot;: [&quot;profile.html&quot;]
-}</code></pre>
-</doc-codeblock></div>
-<p>When <code translate="no" v-pre>users.html</code> changes → <code translate="no" v-pre>dashboard.html</code> refreshes.</p>
-<hr>
-<doc-anchor-target id="refreshtimeout">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#refreshtimeout">#</doc-anchor-trigger>
-        <span><code translate="no" v-pre>refreshTimeout</code></span>
-    </h3>
-</doc-anchor-target>
-<p><strong>Type:</strong> <code translate="no" v-pre>number</code>
-<strong>Default:</strong> <code translate="no" v-pre>200</code></p>
-<p>Delay before triggering refresh.</p>
-<p>Increase if heavy content rendering causes flicker.</p>
-<hr>
-<doc-anchor-target id="notify">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#notify">#</doc-anchor-trigger>
-        <span><code translate="no" v-pre>notify</code></span>
-    </h3>
-</doc-anchor-target>
-<p><strong>Type:</strong> <code translate="no" v-pre>(level, message) =&gt; void</code>
-<strong>Default:</strong> <code translate="no" v-pre>defaultNotify</code></p>
-<p>Custom logger.</p>
-<div id="notify-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">notify: (level, message) =&gt; {
-  myLogger.send(level, message);
-};</code></pre>
-</doc-codeblock></div>
-<hr>
-<doc-anchor-target id="windowmanager-configuration">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#windowmanager-configuration">#</doc-anchor-trigger>
-        <span>WindowManager Configuration</span>
-    </h2>
-</doc-anchor-target>
-<div id="windowmanager-configuration-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-typescript"><code v-pre class="language-typescript">type WindowManagerConfig = {
-  zIndexBase?: number;
-  layoutStabilizationMs?: number;
-  cascadeOffset?: number;
-  cooldownMs?: number;
-  maxWindows?: number;
-  snapGap?: number;
-  taskbarHeight?: number;
-  snapThreshold?: number;
-  dragThreshold?: number;
-  resizeDebounceMs?: number;
-  animationDurationMs?: number;
-  defaultWidth?: number;
-  defaultHeight?: number;
-  minMargin?: number;
-  edgeDetectionRatio?: number;
-  scrollRestoreTimeoutMs?: number;
-};</code></pre>
-</doc-codeblock></div>
 <hr>
 <doc-anchor-target id="full-windowmanager-options">
     <h2>
