@@ -74,24 +74,24 @@ The extended style creates a full-width bar docked to the bottom of the screen, 
 
 ### Changing Position
 
-You can change the orientation and position of the taskbar using the `nd-taskbar-position` attribute.
+You can change the orientation and position of the taskbar using the `tb-position` attribute.
 
 **Bottom (Default)**
 
 ```html
-<div nd-taskbar nd-taskbar-position="bottom">...</div>
+<div nd-taskbar tb-position="bottom">...</div>
 ```
 
 **Left**
 
 ```html
-<div nd-taskbar nd-taskbar-position="left">...</div>
+<div nd-taskbar tb-position="left">...</div>
 ```
 
 **Right**
 
 ```html
-<div nd-taskbar nd-taskbar-position="right">...</div>
+<div nd-taskbar tb-position="right">...</div>
 ```
 
 ### Icon Labels
@@ -125,7 +125,7 @@ The `TaskbarManager` targets specific attributes to apply logic and styling.
 
 ```html
 <!-- Taskbar Container -->
-<div nd-taskbar nd-taskbar-position="bottom">
+<div nd-taskbar tb-position="bottom">
   <!-- Inactive Icon -->
   <div nd-taskbar-icon data-modal="app-id">
     <img src="..." />
@@ -155,7 +155,7 @@ Customize the look and feel of the taskbar by overriding CSS custom properties i
 
 | Variable                       | Default                                 | Description                               |
 | ------------------------------ | --------------------------------------- | ----------------------------------------- |
-| `--nd-taskbar-position`        | `absolute`                              | Position type (absolute, fixed, relative) |
+| `--tb-position`        | `absolute`                              | Position type (absolute, fixed, relative) |
 | `--nd-taskbar-align`           | `center`                                | Vertical alignment of items               |
 | `--nd-taskbar-justify`         | `space-evenly`                          | Horizontal distribution of items          |
 | `--nd-taskbar-gap`             | `1.6rem`                                | Gap between icon items                    |
