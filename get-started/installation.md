@@ -20,19 +20,11 @@ npm install @moonitoring/nidamjs
 +++ bun
 
 ```bash
-bun install @moonitoring/nidamjs
+bun add @moonitoring/nidamjs
 ```
 
 +++
 
-## CDN
-
-If you prefer not to use a package manager, you can include NidamJS directly in your HTML file via a CDN like unpkg or
-jsDelivr.
-
-```html
-<script src="https://unpkg.com/nidamjs/dist/nidam.js"></script>
-```
 
 ## Next Steps
 
