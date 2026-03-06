@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.826142246881">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.826144186301">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.1.0">
@@ -27,12 +27,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../resources/css/retype.css?v=4.1.0.826142246881" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=4.1.0.826144186301" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=4.1.0.826142246881" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=4.1.0.826144186301" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.1.0.826142246881" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=4.1.0.826142246881" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=4.1.0.826144186301" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=4.1.0.826144186301" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -257,32 +257,17 @@ Registers a delegated event handler on the app&#x27;s root. If <code translate="
 Removes a previously registered event handler using the reference object returned by <code translate="no" v-pre>.on()</code>.</p>
 </li>
 </ul>
-<doc-anchor-target id="3-window-refresher-refresher">
+<doc-anchor-target id="3-taskbar-manager-taskbar">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#3-window-refresher-refresher">#</doc-anchor-trigger>
-        <span>3. Window Refresher (<code translate="no" v-pre>&quot;refresher&quot;</code>)</span>
-    </h3>
-</doc-anchor-target>
-<p>Reacts to generic or server-sent events to intelligently refresh window content or close windows.</p>
-<ul>
-<li><p><strong><code translate="no" v-pre>setRefreshMap(refreshMap)</code></strong>
-Dynamically updates the app&#x27;s rule map that determines which window paths refresh upon receiving specific events.</p>
-</li>
-<li><p><strong><code translate="no" v-pre>handleEvent(eventName, payload)</code></strong>
-Processes an incoming event (e.g., <code translate="no" v-pre>user:deleted</code>) and triggers the appropriate window refreshes/closures. Expects the payload to provide an <code translate="no" v-pre>id</code> to determine destruction chains.</p>
-</li>
-</ul>
-<doc-anchor-target id="4-taskbar-manager-taskbar">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#4-taskbar-manager-taskbar">#</doc-anchor-trigger>
-        <span>4. Taskbar Manager (<code translate="no" v-pre>&quot;taskbar&quot;</code>)</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3-taskbar-manager-taskbar">#</doc-anchor-trigger>
+        <span>3. Taskbar Manager (<code translate="no" v-pre>&quot;taskbar&quot;</code>)</span>
     </h3>
 </doc-anchor-target>
 <p>Synchronizes the HTML taskbar layer functionality and icon rendering with the currently open modal instances. Interaction is primarily automatic across <code translate="no" v-pre>$window:opened</code> and <code translate="no" v-pre>$window:closed</code> events.</p>
-<doc-anchor-target id="5-icon-manager-icon">
+<doc-anchor-target id="4-icon-manager-icon">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#5-icon-manager-icon">#</doc-anchor-trigger>
-        <span>5. Icon Manager (<code translate="no" v-pre>&quot;icon&quot;</code>)</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#4-icon-manager-icon">#</doc-anchor-trigger>
+        <span>4. Icon Manager (<code translate="no" v-pre>&quot;icon&quot;</code>)</span>
     </h3>
 </doc-anchor-target>
 <p>Controls desktop icon grid positioning constraints, snapping, and layout memory functionality on the DOM <code translate="no" v-pre>[nd-icons]</code> container.</p>

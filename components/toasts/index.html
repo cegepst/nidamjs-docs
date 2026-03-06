@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.826142246881">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.826144186301">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.1.0">
@@ -27,12 +27,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.1.0.826142246881" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.826144186301" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.826142246881" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.826144186301" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.826142246881" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.826142246881" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.826144186301" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.826144186301" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -277,88 +277,6 @@ showToast(&quot;error&quot;, &quot;Failed to connect to the server.&quot;, {
 
 // Displaying multiple errors, rendering beautifully as an unordered list
 showToast(&quot;warning&quot;, [&quot;Password is too short&quot;, &quot;Email is invalid&quot;]);</code></pre>
-</doc-codeblock></div>
-<hr>
-<doc-anchor-target id="toastnotifylevel-message">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#toastnotifylevel-message">#</doc-anchor-trigger>
-        <span><code translate="no" v-pre>toastNotify(level, message)</code></span>
-    </h3>
-</doc-anchor-target>
-<p>A simplified helper function that maps common log levels to their appropriate toast types and uses the default options.</p>
-<p><strong>Parameters:</strong></p>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code translate="no" v-pre>level</code></td>
-<td><code translate="no" v-pre>String</code></td>
-<td>Yes</td>
-<td>Can be <code translate="no" v-pre>&quot;error&quot;</code>, <code translate="no" v-pre>&quot;warn&quot;</code>/<code translate="no" v-pre>&quot;warning&quot;</code>, or <code translate="no" v-pre>&quot;success&quot;</code>. Any other value will default to <code translate="no" v-pre>&quot;info&quot;</code>.</td>
-</tr>
-<tr>
-<td><code translate="no" v-pre>message</code></td>
-<td><code translate="no" v-pre>Any</code></td>
-<td>Yes</td>
-<td>The message payload to display.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Example:</strong></p>
-<div id="toastnotifylevel-message-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">toastNotify(&quot;success&quot;, &quot;Item added to cart.&quot;);
-toastNotify(&quot;warn&quot;, &quot;Storage is almost full.&quot;);</code></pre>
-</doc-codeblock></div>
-<hr>
-<doc-anchor-target id="createtoastnotifydefaultoptions">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#createtoastnotifydefaultoptions">#</doc-anchor-trigger>
-        <span>createToastNotify(defaultOptions)</span>
-    </h3>
-</doc-anchor-target>
-<p>Creates a new notification utility function (similar to <code translate="no" v-pre>toastNotify</code>) configured with your own predefined default options.</p>
-<p><strong>Parameters:</strong></p>
-<div class="table-wrapper scrollbar overflow-hidden">
-<table class="comfortable">
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code translate="no" v-pre>defaultOptions</code></td>
-<td><code translate="no" v-pre>Object</code></td>
-<td>Yes</td>
-<td>A configuration parameter containing default overrides for <code translate="no" v-pre>duration</code>, <code translate="no" v-pre>closable</code>, and <code translate="no" v-pre>position</code>.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Example:</strong></p>
-<div id="createtoastnotifydefaultoptions-code-1" class="codeblock-wrapper"><doc-codeblock>
-<pre translate="no" class="language-javascript"><code v-pre class="language-javascript">// Create a custom notifier that always puts toasts on the top-left and disables auto-close entirely
-const myNotifier = createToastNotify({
-  position: &quot;top-left&quot;,
-  duration: 0,
-  closable: true,
-});
-
-// Now you can easily reuse these settings anywhere!
-myNotifier(&quot;error&quot;, &quot;Critical system failure!&quot;);
-myNotifier(&quot;info&quot;, &quot;System is down for maintenance.&quot;);</code></pre>
 </doc-codeblock></div>
 <hr>
 <doc-anchor-target id="technical-specifications">
