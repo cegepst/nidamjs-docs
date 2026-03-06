@@ -8,7 +8,7 @@ Getting started with NidamJS is quick and flexible. Depending on your needs, you
 
 **Required:** Add the NidamJS `<script>`, `<link>`, and `<div nd-desktop>` to your page.
 
-Everything else inside `<div nd-desktop>` is optional — add only the components you need (icons, taskbar, toasts, etc.).
+Everything else inside `<div nd-desktop>` is optional — add only the components you need (icons, taskbar, toasts).
 
 ```html
 <!doctype html>
