@@ -48,8 +48,6 @@ Simply add the main stylesheet and script to your HTML file. That's it!
         </div>
       </div>
       
-      <!-- Window Render Target -->
-      <div id="target"></div>
       
       <!-- Toasts notification -->
       <div nd-toast-stack data-position="bottom-right"></div>
@@ -104,8 +102,6 @@ Add the `data-nd-init` attribute to the `script` tag loading your own initializa
         </div>
       </div>
       
-      <!-- Window Render Target -->
-      <div id="target"></div>
       
       <!-- Toasts notification -->
       <div nd-toast-stack data-position="bottom-right"></div>
