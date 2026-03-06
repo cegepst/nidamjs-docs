@@ -97,53 +97,6 @@ showToast("warning", ["Password is too short", "Email is invalid"]);
 
 ---
 
-### `toastNotify(level, message)`
-
-A simplified helper function that maps common log levels to their appropriate toast types and uses the default options.
-
-**Parameters:**
-
-| Parameter | Type     | Required | Description                                                                                       |
-| --------- | -------- | -------- | ------------------------------------------------------------------------------------------------- |
-| `level`   | `String` | Yes      | Can be `"error"`, `"warn"`/`"warning"`, or `"success"`. Any other value will default to `"info"`. |
-| `message` | `Any`    | Yes      | The message payload to display.                                                                   |
-
-**Example:**
-
-```javascript
-toastNotify("success", "Item added to cart.");
-toastNotify("warn", "Storage is almost full.");
-```
-
----
-
-### createToastNotify(defaultOptions)
-
-Creates a new notification utility function (similar to `toastNotify`) configured with your own predefined default options.
-
-**Parameters:**
-
-| Parameter        | Type     | Required | Description                                                                                        |
-| ---------------- | -------- | -------- | -------------------------------------------------------------------------------------------------- |
-| `defaultOptions` | `Object` | Yes      | A configuration parameter containing default overrides for `duration`, `closable`, and `position`. |
-
-**Example:**
-
-```javascript
-// Create a custom notifier that always puts toasts on the top-left and disables auto-close entirely
-const myNotifier = createToastNotify({
-  position: "top-left",
-  duration: 0,
-  closable: true,
-});
-
-// Now you can easily reuse these settings anywhere!
-myNotifier("error", "Critical system failure!");
-myNotifier("info", "System is down for maintenance.");
-```
-
----
-
 ## Technical Specifications
 
 ### Attribute Reference
