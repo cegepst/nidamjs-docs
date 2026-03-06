@@ -17,7 +17,7 @@ Install NidamJS using `npm` or `bun`.
 npm install @moonitoring/nidamjs
 ```
 
-+++ Bun
++++ bun
 
 ```bash
 bun add @moonitoring/nidamjs

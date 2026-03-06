@@ -15,14 +15,6 @@ You can override:
 - Drag sensitivity
 - Layout constraints
 - Logging system
-- Refresh rules
-
-The configuration system is designed to be:
-
-✔ Explicit
-✔ Type-safe (JSDoc friendly)
-✔ Extendable
-✔ Optional (sane defaults)
 
 ---
 
@@ -34,51 +26,18 @@ To use a custom configuration, the script **must be loaded manually**.
 <script type="module" src="example.js" data-nd-init></script>
 ```
 
-> ⚠ Custom config only works if NidamJS is initialized manually.
-
----
-
-## Manual Initialization Example
-
 ```js
-import initNidamApp from "../../dist/nidam.es.js";
-import config from "../shared/example.config.json" with { type: "json" };
+//example.js
+
+import config from './nidam.config.json' with { type: 'json' };
+import initNidamApp from "@moonitoring/nidamjs";
 
 initNidamApp(config);
-```
 
----
-
-## Configuration Structure
-
-```ts
-type NidamConfig = {
-  root?: Document | HTMLElement;
-  modalContainer?: string;
-  pendingModalDatasetKey?: string;
-  registry?: any[];
-  refreshMap?: Record<string, string[]> | null;
-  refreshTimeout?: number;
-  notify?: (level: string, message: string) => void;
-  windowManager?: WindowManagerConfig;
-};
-```
-
----
-
-## Default Configuration
-
-```js
-export default {
-  root: document,
-  modalContainer: "#target",
-  pendingModalDatasetKey: "pendingModal",
-  registry: [],
-  refreshMap: null,
-  refreshTimeout: 200,
-  notify: defaultNotify,
-  windowManager: { ... }
-}
+/*
+You can pass a simple js object as config instead of using a config file
+initNidamApp({});
+*/
 ```
 
 ---
@@ -134,47 +93,6 @@ Only override if integrating with another system.
 Content modules registry.
 
 Used for advanced content injection patterns.
-
----
-
-
-### `notify`
-
-**Type:** `(level, message) => void`
-**Default:** `defaultNotify`
-
-Custom logger.
-
-```js
-notify: (level, message) => {
-  myLogger.send(level, message);
-};
-```
-
----
-
-## WindowManager Configuration
-
-```ts
-type WindowManagerConfig = {
-  zIndexBase?: number;
-  layoutStabilizationMs?: number;
-  cascadeOffset?: number;
-  cooldownMs?: number;
-  maxWindows?: number;
-  snapGap?: number;
-  taskbarHeight?: number;
-  snapThreshold?: number;
-  dragThreshold?: number;
-  resizeDebounceMs?: number;
-  animationDurationMs?: number;
-  defaultWidth?: number;
-  defaultHeight?: number;
-  minMargin?: number;
-  edgeDetectionRatio?: number;
-  scrollRestoreTimeoutMs?: number;
-};
-```
 
 ---
 
